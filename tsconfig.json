@@ -16,6 +16,14 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-uikit": [
+        "dist/ng-uikit"
+      ],
+      "ng-uikit/*": [
+        "dist/ng-uikit/*"
+      ]
+    }
   }
 }
