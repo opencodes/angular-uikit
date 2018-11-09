@@ -1,0 +1,24 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" [ngStyle]="{width: width}">
+  <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" attr.data-slide-to="{{i}}" *ngFor="let item of items; let i=index;"
+          [ngClass]="{'active':i == activeIndex}" (click)="goTo(i)">
+      </li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let item of items; let i=index;" [ngClass]="{'active':i == activeIndex}">
+      <img src="{{item.src}}" alt="{{item.alt}}">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>{{item.alt}}</h5>
+        <p>{{item.alt}}</p>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" (click)="next()" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
