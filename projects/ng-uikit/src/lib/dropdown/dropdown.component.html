@@ -1,0 +1,12 @@
+<div class="dropdown show" [ngClass]="{'show': isShowDropdown}">
+  <a class="btn btn-secondary dropdown-toggle" (click)="toggle()" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+     aria-haspopup="true" attr.aria-expanded="{{isShowDropdown}}">
+    {{buttonText}}
+  </a>
+  <div class="dropdown-menu dropdown-menu-right" [ngClass]="{'show': isShowDropdown}" aria-labelledby="dropdownMenuLink">
+    <ng-container *ngFor="let item of items">
+      <a class="dropdown-item" href="{{item.url}}" >{{item.text}}</a>
+      <div class="dropdown-divider" *ngIf="item.isDivider"></div>
+    </ng-container>
+  </div>
+</div>
