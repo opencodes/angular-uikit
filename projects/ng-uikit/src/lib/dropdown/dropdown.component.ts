@@ -3,7 +3,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export interface Item {
   url: string;
   text: string;
-  isDivider: boolean;
+  isDivider?: boolean;
 }
 
 @Component({
@@ -14,12 +14,14 @@ export interface Item {
 export class DropdownComponent implements OnInit {
   @Input() items: Item[] = [];
   @Input() buttonText = 'Your Button Text';
+  @Input() isOpen;
   isShowDropdown = false;
 
   constructor() {
   }
 
   ngOnInit() {
+    this.isShowDropdown = this.isOpen || false;
   }
 
   toggle() {
