@@ -12,6 +12,12 @@ import {ChartComponent} from './chart/chart.component';
 import {DatepickerComponent} from './datepicker/datepicker.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import {DropdownModule} from '../../projects/ng-uikit/src/lib/dropdown/dropdown.module';
+import { ModalComponent } from './modal/modal.component';
+import { AccordionComponent } from './accordion/accordion.component';
+import { TooltipComponent } from './tooltip/tooltip.component';
+import { CardComponent } from './card/card.component';
+import { DatatableComponent } from './datatable/datatable.component';
+import { TabComponent } from './tab/tab.component';
 
 
 @NgModule({
@@ -20,7 +26,13 @@ import {DropdownModule} from '../../projects/ng-uikit/src/lib/dropdown/dropdown.
     CarouselComponent,
     ChartComponent,
     DatepickerComponent,
-    DropdownComponent
+    DropdownComponent,
+    ModalComponent,
+    AccordionComponent,
+    TooltipComponent,
+    CardComponent,
+    DatatableComponent,
+    TabComponent
   ],
   imports: [
     BrowserModule,
@@ -30,10 +42,16 @@ import {DropdownModule} from '../../projects/ng-uikit/src/lib/dropdown/dropdown.
     DropdownModule,
     ChartModule,
     RouterModule.forRoot([
+      {path: 'Accordion', component: AccordionComponent},
+      {path: 'Card', component: CardComponent},
       {path: 'Carousel', component: CarouselComponent},
       {path: 'Chart', component: ChartComponent},
+      {path: 'Datatable', component: DatatableComponent},
       {path: 'Datepicker', component: DatepickerComponent},
-      {path: 'Dropdown', component: DropdownComponent}
+      {path: 'Dropdown', component: DropdownComponent},
+      {path: 'Modal', component: ModalComponent},
+      {path: 'Tab', component: TabComponent},
+      {path: 'Tooltip', component: TooltipComponent},
     ], {useHash: true})
   ],
   providers: [],

@@ -7,23 +7,22 @@ export interface Item {
 }
 
 @Component({
-  selector: 'ui-dropdown',
+  selector: 'app-dropdown',
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.css']
 })
 export class DropdownComponent implements OnInit {
-  @Input() items: Item[] = [];
-  @Input() buttonText = 'Your Button Text';
-  isShowDropdown = false;
+  items = [
+    {
+      url: '',
+      text: 'fsdf'
+    }
+  ];
 
   constructor() {
   }
 
   ngOnInit() {
-  }
-
-  toggle() {
-    this.isShowDropdown = !this.isShowDropdown;
   }
 
 }
