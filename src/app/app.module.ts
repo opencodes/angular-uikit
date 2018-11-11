@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
+import {PrismModule} from '@ngx-prism/core';
 
 import {AppComponent} from './app.component';
 import {NgUikitModule} from '../../projects/ng-uikit/src/lib/ng-uikit.module';
@@ -10,14 +11,14 @@ import {DatepickerModule} from '../../projects/ng-uikit/src/lib/datepicker/datep
 import {ChartModule} from '../../projects/ng-uikit/src/lib/chart/chart.module';
 import {ChartComponent} from './chart/chart.component';
 import {DatepickerComponent} from './datepicker/datepicker.component';
-import { DropdownComponent } from './dropdown/dropdown.component';
+import {DropdownComponent} from './dropdown/dropdown.component';
 import {DropdownModule} from '../../projects/ng-uikit/src/lib/dropdown/dropdown.module';
-import { ModalComponent } from './modal/modal.component';
-import { AccordionComponent } from './accordion/accordion.component';
-import { TooltipComponent } from './tooltip/tooltip.component';
-import { CardComponent } from './card/card.component';
-import { DatatableComponent } from './datatable/datatable.component';
-import { TabComponent } from './tab/tab.component';
+import {ModalComponent} from './modal/modal.component';
+import {AccordionComponent} from './accordion/accordion.component';
+import {TooltipComponent} from './tooltip/tooltip.component';
+import {CardComponent} from './card/card.component';
+import {DatatableComponent} from './datatable/datatable.component';
+import {TabComponent} from './tab/tab.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { TabComponent } from './tab/tab.component';
     DatepickerModule,
     DropdownModule,
     ChartModule,
+    PrismModule,
     RouterModule.forRoot([
       {path: 'Accordion', component: AccordionComponent},
       {path: 'Card', component: CardComponent},
