@@ -1,0 +1,63 @@
+<h5>Import</h5>
+<ngx-prism [language]="language" [code]="codes.import"></ngx-prism>
+<h5>Component</h5>
+<ngx-prism [language]="language" [code]="codes.component"></ngx-prism>
+<h5>Html Template</h5>
+<ngx-prism [language]="language" [code]="codes.html"></ngx-prism>
+<h5>Properties</h5>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let property of codes.properties">
+      <td>{{property.name}}</td>
+      <td>{{property.type}}</td>
+      <td>{{property.default}}</td>
+      <td>{{property.description}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<h5>Events</h5>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Parameters</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let property of codes.events">
+      <td>{{property.name}}</td>
+      <td>{{property.parameters}}</td>
+      <td>{{property.description}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<h5>Styling</h5>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Selector</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let property of codes.styling">
+      <td>{{property.selector}}</td>
+      <td>{{property.description}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
