@@ -19,6 +19,15 @@ import {TooltipComponent} from './tooltip/tooltip.component';
 import {CardComponent} from './card/card.component';
 import {DatatableComponent} from './datatable/datatable.component';
 import {TabComponent} from './tab/tab.component';
+import {AccordionModule} from '../../projects/ng-uikit/src/lib/accordion/accordion.module';
+import {DocComponent} from './shared/component/doc/doc.component';
+import {CardModule} from '../../projects/ng-uikit/src/lib/card/card.module';
+import {DatatableModule} from '../../projects/ng-uikit/src/lib/datatable/datatable.module';
+import {ModalModule} from '../../projects/ng-uikit/src/lib/modal/modal.module';
+import {TabModule} from '../../projects/ng-uikit/src/lib/tab/tab.module';
+import {TooltipModule} from '../../projects/ng-uikit/src/lib/tooltip/tooltip.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -32,17 +41,27 @@ import {TabComponent} from './tab/tab.component';
     TooltipComponent,
     CardComponent,
     DatatableComponent,
-    TabComponent
+    TabComponent,
+    DocComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     NgUikitModule,
     CarouselModule,
+    AccordionModule,
     DatepickerModule,
     DropdownModule,
     ChartModule,
+    CardModule,
+    DatepickerModule,
+    DatatableModule,
+    ModalModule,
+    TabModule,
+    TooltipModule,
     PrismModule,
     RouterModule.forRoot([
+      {path: '', component: DashboardComponent},
       {path: 'Accordion', component: AccordionComponent},
       {path: 'Card', component: CardComponent},
       {path: 'Carousel', component: CarouselComponent},
