@@ -878,22 +878,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _projects_ng_uikit_src_lib_ng_uikit_module__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/ng-uikit.module */ "./projects/ng-uikit/src/lib/ng-uikit.module.ts");
-/* harmony import */ var _projects_ng_uikit_src_lib_carousel_carousel_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/carousel/carousel.module */ "./projects/ng-uikit/src/lib/carousel/carousel.module.ts");
-/* harmony import */ var _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./carousel/carousel.component */ "./src/app/carousel/carousel.component.ts");
-/* harmony import */ var _projects_ng_uikit_src_lib_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/datepicker/datepicker.module */ "./projects/ng-uikit/src/lib/datepicker/datepicker.module.ts");
-/* harmony import */ var _projects_ng_uikit_src_lib_chart_chart_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/chart/chart.module */ "./projects/ng-uikit/src/lib/chart/chart.module.ts");
-/* harmony import */ var _chart_chart_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./chart/chart.component */ "./src/app/chart/chart.component.ts");
-/* harmony import */ var _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./datepicker/datepicker.component */ "./src/app/datepicker/datepicker.component.ts");
-/* harmony import */ var _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./dropdown/dropdown.component */ "./src/app/dropdown/dropdown.component.ts");
-/* harmony import */ var _projects_ng_uikit_src_lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/dropdown/dropdown.module */ "./projects/ng-uikit/src/lib/dropdown/dropdown.module.ts");
-/* harmony import */ var _modal_modal_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./modal/modal.component */ "./src/app/modal/modal.component.ts");
-/* harmony import */ var _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./accordion/accordion.component */ "./src/app/accordion/accordion.component.ts");
-/* harmony import */ var _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./tooltip/tooltip.component */ "./src/app/tooltip/tooltip.component.ts");
-/* harmony import */ var _card_card_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./card/card.component */ "./src/app/card/card.component.ts");
-/* harmony import */ var _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./datatable/datatable.component */ "./src/app/datatable/datatable.component.ts");
-/* harmony import */ var _tab_tab_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./tab/tab.component */ "./src/app/tab/tab.component.ts");
+/* harmony import */ var _ngx_prism_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-prism/core */ "./node_modules/@ngx-prism/core/dist/index.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_ng_uikit_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/ng-uikit.module */ "./projects/ng-uikit/src/lib/ng-uikit.module.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_carousel_carousel_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/carousel/carousel.module */ "./projects/ng-uikit/src/lib/carousel/carousel.module.ts");
+/* harmony import */ var _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./carousel/carousel.component */ "./src/app/carousel/carousel.component.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/datepicker/datepicker.module */ "./projects/ng-uikit/src/lib/datepicker/datepicker.module.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_chart_chart_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/chart/chart.module */ "./projects/ng-uikit/src/lib/chart/chart.module.ts");
+/* harmony import */ var _chart_chart_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./chart/chart.component */ "./src/app/chart/chart.component.ts");
+/* harmony import */ var _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./datepicker/datepicker.component */ "./src/app/datepicker/datepicker.component.ts");
+/* harmony import */ var _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./dropdown/dropdown.component */ "./src/app/dropdown/dropdown.component.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/dropdown/dropdown.module */ "./projects/ng-uikit/src/lib/dropdown/dropdown.module.ts");
+/* harmony import */ var _modal_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modal/modal.component */ "./src/app/modal/modal.component.ts");
+/* harmony import */ var _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./accordion/accordion.component */ "./src/app/accordion/accordion.component.ts");
+/* harmony import */ var _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./tooltip/tooltip.component */ "./src/app/tooltip/tooltip.component.ts");
+/* harmony import */ var _card_card_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./card/card.component */ "./src/app/card/card.component.ts");
+/* harmony import */ var _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./datatable/datatable.component */ "./src/app/datatable/datatable.component.ts");
+/* harmony import */ var _tab_tab_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./tab/tab.component */ "./src/app/tab/tab.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -919,46 +920,48 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_6__["CarouselComponent"],
-                _chart_chart_component__WEBPACK_IMPORTED_MODULE_9__["ChartComponent"],
-                _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_10__["DatepickerComponent"],
-                _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_11__["DropdownComponent"],
-                _modal_modal_component__WEBPACK_IMPORTED_MODULE_13__["ModalComponent"],
-                _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_14__["AccordionComponent"],
-                _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_15__["TooltipComponent"],
-                _card_card_component__WEBPACK_IMPORTED_MODULE_16__["CardComponent"],
-                _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_17__["DatatableComponent"],
-                _tab_tab_component__WEBPACK_IMPORTED_MODULE_18__["TabComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+                _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_7__["CarouselComponent"],
+                _chart_chart_component__WEBPACK_IMPORTED_MODULE_10__["ChartComponent"],
+                _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_11__["DatepickerComponent"],
+                _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_12__["DropdownComponent"],
+                _modal_modal_component__WEBPACK_IMPORTED_MODULE_14__["ModalComponent"],
+                _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_15__["AccordionComponent"],
+                _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_16__["TooltipComponent"],
+                _card_card_component__WEBPACK_IMPORTED_MODULE_17__["CardComponent"],
+                _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_18__["DatatableComponent"],
+                _tab_tab_component__WEBPACK_IMPORTED_MODULE_19__["TabComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _projects_ng_uikit_src_lib_ng_uikit_module__WEBPACK_IMPORTED_MODULE_4__["NgUikitModule"],
-                _projects_ng_uikit_src_lib_carousel_carousel_module__WEBPACK_IMPORTED_MODULE_5__["CarouselModule"],
-                _projects_ng_uikit_src_lib_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_7__["DatepickerModule"],
-                _projects_ng_uikit_src_lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_12__["DropdownModule"],
-                _projects_ng_uikit_src_lib_chart_chart_module__WEBPACK_IMPORTED_MODULE_8__["ChartModule"],
+                _projects_ng_uikit_src_lib_ng_uikit_module__WEBPACK_IMPORTED_MODULE_5__["NgUikitModule"],
+                _projects_ng_uikit_src_lib_carousel_carousel_module__WEBPACK_IMPORTED_MODULE_6__["CarouselModule"],
+                _projects_ng_uikit_src_lib_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_8__["DatepickerModule"],
+                _projects_ng_uikit_src_lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_13__["DropdownModule"],
+                _projects_ng_uikit_src_lib_chart_chart_module__WEBPACK_IMPORTED_MODULE_9__["ChartModule"],
+                _ngx_prism_core__WEBPACK_IMPORTED_MODULE_3__["PrismModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot([
-                    { path: 'Accordion', component: _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_14__["AccordionComponent"] },
-                    { path: 'Card', component: _card_card_component__WEBPACK_IMPORTED_MODULE_16__["CardComponent"] },
-                    { path: 'Carousel', component: _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_6__["CarouselComponent"] },
-                    { path: 'Chart', component: _chart_chart_component__WEBPACK_IMPORTED_MODULE_9__["ChartComponent"] },
-                    { path: 'Datatable', component: _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_17__["DatatableComponent"] },
-                    { path: 'Datepicker', component: _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_10__["DatepickerComponent"] },
-                    { path: 'Dropdown', component: _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_11__["DropdownComponent"] },
-                    { path: 'Modal', component: _modal_modal_component__WEBPACK_IMPORTED_MODULE_13__["ModalComponent"] },
-                    { path: 'Tab', component: _tab_tab_component__WEBPACK_IMPORTED_MODULE_18__["TabComponent"] },
-                    { path: 'Tooltip', component: _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_15__["TooltipComponent"] },
+                    { path: 'Accordion', component: _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_15__["AccordionComponent"] },
+                    { path: 'Card', component: _card_card_component__WEBPACK_IMPORTED_MODULE_17__["CardComponent"] },
+                    { path: 'Carousel', component: _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_7__["CarouselComponent"] },
+                    { path: 'Chart', component: _chart_chart_component__WEBPACK_IMPORTED_MODULE_10__["ChartComponent"] },
+                    { path: 'Datatable', component: _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_18__["DatatableComponent"] },
+                    { path: 'Datepicker', component: _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_11__["DatepickerComponent"] },
+                    { path: 'Dropdown', component: _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_12__["DropdownComponent"] },
+                    { path: 'Modal', component: _modal_modal_component__WEBPACK_IMPORTED_MODULE_14__["ModalComponent"] },
+                    { path: 'Tab', component: _tab_tab_component__WEBPACK_IMPORTED_MODULE_19__["TabComponent"] },
+                    { path: 'Tooltip', component: _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_16__["TooltipComponent"] },
                 ], { useHash: true })
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -1049,7 +1052,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\" id=\"Carousel\">\n  <h1 class=\"h2\">Carousel</h1>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-6\">\n    <pre>\n      &#x3C;ui-carousel\n      [items]=&#x22;items&#x22;\n      (afterNext)=&#x22;logEvent($event)&#x22;\n      (afterPrev)=&#x22;logEvent($event)&#x22;&#x3E;\n      &#x3C;/ui-carousel&#x3E;\n    </pre>\n  </div>\n\n  <div class=\"col-md-6\">\n    <div class=\"demo-content float-right\">\n      <ui-carousel\n        [items]=\"items\"\n        (afterNext)=\"logEvent($event)\"\n        (afterPrev)=\"logEvent($event)\">\n      </ui-carousel>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">Carousel</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <h5>Import</h5>\r\n    <ngx-prism [language]=\"language\" [code]=\"codes[0]\"></ngx-prism>\r\n    <h5>Component</h5>\r\n    <ngx-prism [language]=\"language\" [code]=\"codes[1]\"></ngx-prism>\r\n    <h5>Html Template</h5>\r\n    <p>Carausel requires items</p>\r\n    <ngx-prism [language]=\"language\" [code]=\"codes[2]\"></ngx-prism>\r\n    <h5>Properties</h5>\r\n    <div class=\"table-responsive\">\r\n      <table class=\"table table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n          <td>items</td>\r\n          <td>Array[]</td>\r\n          <td>[]</td>\r\n          <td>\r\n            <ngx-prism [language]=\"language\" [code]=\"'Array[{src: ..., alt: ... }]'\"></ngx-prism>\r\n          </td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n    <h5>Events</h5>\r\n    <div class=\"table-responsive\">\r\n      <table class=\"table table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Parameters</th>\r\n          <th>Description</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n          <td>afterNext</td>\r\n          <td>event</td>\r\n          <td>Emit event with moved item info.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>afterPrev</td>\r\n          <td>event</td>\r\n          <td>Emit event with moved item info.</td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n    <h5>Styling</h5>\r\n    <div class=\"table-responsive\">\r\n      <table class=\"table table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Element</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n          <td>.carousel </td>\r\n          <td>Carousel parent class</td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-carousel\r\n        [items]=\"items\"\r\n        (afterNext)=\"logEvent($event)\"\r\n        (afterPrev)=\"logEvent($event)\">\r\n      </ui-carousel>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1090,6 +1093,8 @@ var CarouselComponent = /** @class */ (function () {
                 alt: 'Third slide'
             }
         ];
+        this.codes = ["import {CarouselModule} from 'ng-uikit'", "export class CarouselComponent implements OnInit {\n\n    items = [\n      {\n        src: 'https://via.placeholder.com/600x400/367fa9/FFFFFF?auto=yes&bg=777&fg=555&text=First slide',\n        alt: 'First slide'\n      },\n      {\n        src: 'https://via.placeholder.com/600x400/dd4b39/FFFFFF?auto=yes&bg=777&fg=555&text=Second slide',\n        alt: 'Second slide'\n      },\n      {\n        src: 'https://via.placeholder.com/600x400/00a65a/FFFFFF?auto=yes&bg=777&fg=555&text=Third slide',\n        alt: 'Third slide'\n      }\n    ];\n    logEvent(e) {\n      console.log(e);\n    }\n  }\n  ", "<ui-carousel\n    [items]=\"items\"\n    (afterNext)=\"logEvent($event)\"\n    (afterPrev)=\"logEvent($event)\">\n</ui-carousel>"];
+        this.language = 'js';
     }
     CarouselComponent.prototype.ngOnInit = function () {
     };

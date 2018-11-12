@@ -20,7 +20,6 @@ import {CardComponent} from './card/card.component';
 import {DatatableComponent} from './datatable/datatable.component';
 import {TabComponent} from './tab/tab.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
