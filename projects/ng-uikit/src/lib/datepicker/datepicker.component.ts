@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {DatepickerService} from './datepicker.service';
 import {DateObj, DefaultLocaleWeekdaysShort} from './datepicker.interface';
+
 
 @Component({
   selector: 'ui-datepicker',
@@ -9,6 +10,7 @@ import {DateObj, DefaultLocaleWeekdaysShort} from './datepicker.interface';
 })
 export class DatepickerComponent implements OnInit {
   @Output() selected = new EventEmitter();
+  @Input() mode: string = 'single' || 'range';
   items = [
     {
       url: 'a',
@@ -27,7 +29,10 @@ export class DatepickerComponent implements OnInit {
   daysList: (any[] | any[] | any[] | any[] | any[] | any[])[];
   selectedDateTime: DateObj;
   defaultLocaleWeekdaysShort: string[] = DefaultLocaleWeekdaysShort;
-
+  range: any = {
+    from: null,
+    to: null
+  };
 
   constructor(private datepickerSvc: DatepickerService) {
   }
@@ -46,8 +51,33 @@ export class DatepickerComponent implements OnInit {
     console.log(this.selectedDateTime);
   }
 
+  isWithinRange(day): boolean {
+    if (day) {
+      const a = this.selectedDateTime.numericDate.split('-');
+      a[2] = (day <= 9) ? '0' + day : day + '';
+      const today = parseInt(a.join(''), 10);
+      const from = parseInt(this.range.from.numericDate.split('-').join(''), 10);
+      const to = parseInt(this.range.to.numericDate.split('-').join(''), 10);
+      console.log(today, from, to);
+      return (today >= from && today <= to);
+    }
+    return false;
+  }
+
   getSelectedClass(day) {
-    return {'c-datepicker__day--selected': this.selectedDateTime.date === parseInt(day, 10)};
+    let isSelected = false;
+    day = parseInt(day, 10);
+    if (this.mode === 'range') {
+      if (this.range.from) {
+        isSelected = (this.range.from.date === day);
+      }
+      if (this.range.from && this.range.to) {
+        isSelected = this.isWithinRange(day);
+      }
+    } else {
+      isSelected = this.selectedDateTime.date === day;
+    }
+    return {'c-datepicker__day--selected': isSelected};
   }
 
   setDate(day) {
@@ -60,14 +90,24 @@ export class DatepickerComponent implements OnInit {
       d.minutes,
       d.seconds
     );
-    this.selected.emit(this.selectedDateTime);
+    if (this.mode === 'range') {
+      if (this.range.from) {
+        this.range.to = this.selectedDateTime;
+      } else {
+        this.range.from = this.selectedDateTime;
+      }
+      this.selected.emit(this.range);
+    } else {
+      this.selected.emit(this.selectedDateTime);
+    }
+    console.log(this.selectedDateTime, this.range);
   }
 
   prevMonth() {
     const d = this.selectedDateTime;
     this.selectedDateTime = this.datepickerSvc.getDateJsonObj(
       d.year,
-      d.month - 1,
+      parseInt(d.month, 10) - 1,
       d.date,
       d.hours,
       d.minutes,
@@ -81,7 +121,7 @@ export class DatepickerComponent implements OnInit {
     const d = this.selectedDateTime;
     this.selectedDateTime = this.datepickerSvc.getDateJsonObj(
       d.year,
-      d.month + 1,
+      parseInt(d.month, 10) + 1,
       d.date,
       d.hours,
       d.minutes,
