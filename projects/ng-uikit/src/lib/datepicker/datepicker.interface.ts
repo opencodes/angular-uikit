@@ -7,8 +7,8 @@ export interface DateObj {
   day: number;
   dayString: string;
   dayStringShort: string;
-  date: number;
-  month: number;
+  date: string;
+  month: string;
   monthString: string;
   monthStringShort: string;
   time: string;
@@ -17,4 +17,5 @@ export interface DateObj {
   seconds: string;
   year: string;
   UTCString: string;
+  numericDate: string;
 }
