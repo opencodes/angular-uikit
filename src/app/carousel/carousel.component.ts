@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Codes} from '../shared/demo';
 
 @Component({
   selector: 'app-carousel',
@@ -21,7 +22,10 @@ export class CarouselComponent implements OnInit {
       alt: 'Third slide'
     }
   ];
-  codes = [`import {CarouselModule} from 'ng-uikit'`,`export class CarouselComponent implements OnInit {
+
+  codes: Codes = {
+    import: `import {CarouselModule} from 'ng-uikit'`,
+    component: `export class CarouselComponent implements OnInit {
 
     items = [
       {
@@ -40,14 +44,30 @@ export class CarouselComponent implements OnInit {
     logEvent(e) {
       console.log(e);
     }
-  }
-  `, `<ui-carousel
+  }`,
+    html: `<ui-carousel
     [items]="items"
     (afterNext)="logEvent($event)"
     (afterPrev)="logEvent($event)">
-</ui-carousel>`];
-
-  language = 'js';
+</ui-carousel>`,
+    properties: [{
+      name: '',
+      type: '',
+      default: '',
+      description: ''
+    }],
+    events: [{
+      name: '',
+      parameters: '',
+      description: ''
+    }],
+    styling: [{
+      selector: '',
+      description: ''
+    }]
+  };
+  language = 'html';
+  title = 'Modal';
 
   constructor() {
   }

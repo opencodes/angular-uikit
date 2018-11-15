@@ -1,9 +1,9 @@
 <h5>Import</h5>
-<ngx-prism [language]="language" [code]="codes.import"></ngx-prism>
+<ngx-prism [language]="language" [code]="pageData.import"></ngx-prism>
 <h5>Component</h5>
-<ngx-prism [language]="language" [code]="codes.component"></ngx-prism>
+<ngx-prism [language]="language" [code]="pageData.component"></ngx-prism>
 <h5>Html Template</h5>
-<ngx-prism [language]="language" [code]="codes.html"></ngx-prism>
+<ngx-prism [language]="language" [code]="pageData.html"></ngx-prism>
 <h5>Properties</h5>
 <div class="table-responsive">
   <table class="table table-striped">
@@ -16,7 +16,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let property of codes.properties">
+    <tr *ngFor="let property of pageData.properties">
       <td>{{property.name}}</td>
       <td>{{property.type}}</td>
       <td>{{property.default}}</td>
@@ -36,7 +36,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let property of codes.events">
+    <tr *ngFor="let property of pageData.events">
       <td>{{property.name}}</td>
       <td>{{property.parameters}}</td>
       <td>{{property.description}}</td>
@@ -54,7 +54,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let property of codes.styling">
+    <tr *ngFor="let property of pageData.styling">
       <td>{{property.selector}}</td>
       <td>{{property.description}}</td>
     </tr>

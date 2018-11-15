@@ -4,77 +4,7 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <h5>Import</h5>
-    <ngx-prism [language]="language" [code]="codes[0]"></ngx-prism>
-    <h5>Component</h5>
-    <ngx-prism [language]="language" [code]="codes[1]"></ngx-prism>
-    <h5>Html Template</h5>
-    <p>Carausel requires items</p>
-    <ngx-prism [language]="language" [code]="codes[2]"></ngx-prism>
-    <h5>Properties</h5>
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Default</th>
-          <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>items</td>
-          <td>Array[]</td>
-          <td>[]</td>
-          <td>
-            <ngx-prism [language]="language" [code]="'Array[{src: ..., alt: ... }]'"></ngx-prism>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <h5>Events</h5>
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Parameters</th>
-          <th>Description</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>afterNext</td>
-          <td>event</td>
-          <td>Emit event with moved item info.</td>
-        </tr>
-        <tr>
-          <td>afterPrev</td>
-          <td>event</td>
-          <td>Emit event with moved item info.</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
-    <h5>Styling</h5>
-    <div class="table-responsive">
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th>Name</th>
-          <th>Element</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-          <td>.carousel </td>
-          <td>Carousel parent class</td>
-        </tr>
-        </tbody>
-      </table>
-    </div>
+    <app-doc [pageData]="codes"></app-doc>
   </div>
 
   <div class="col-md-6">

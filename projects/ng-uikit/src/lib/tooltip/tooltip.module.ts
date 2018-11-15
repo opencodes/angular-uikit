@@ -6,6 +6,7 @@ import { TooltipComponent } from './tooltip.component';
   imports: [
     CommonModule
   ],
-  declarations: [TooltipComponent]
+  declarations: [TooltipComponent],
+  exports: [TooltipComponent]
 })
 export class TooltipModule { }

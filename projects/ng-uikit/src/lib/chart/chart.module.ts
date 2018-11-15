@@ -6,6 +6,7 @@ import { ChartComponent } from './chart.component';
   imports: [
     CommonModule
   ],
-  declarations: [ChartComponent]
+  declarations: [ChartComponent],
+  exports: [ChartComponent]
 })
 export class ChartModule { }

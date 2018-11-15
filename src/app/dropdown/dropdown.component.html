@@ -1,22 +1,14 @@
-<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom" id="Carousel">
-  <h1 class="h2">Dropdown</h1>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+     id="Carousel">
+  <h1 class="h2">{{title}}</h1>
 </div>
 <div class="row">
   <div class="col-md-6">
-    <pre>
-      &#x3C;ui-carousel
-      [items]=&#x22;items&#x22;
-      (afterNext)=&#x22;logEvent($event)&#x22;
-      (afterPrev)=&#x22;logEvent($event)&#x22;&#x3E;
-      &#x3C;/ui-carousel&#x3E;
-    </pre>
+    <app-doc [pageData]="codes"></app-doc>
   </div>
-
   <div class="col-md-6">
     <div class="demo-content float-right">
-      <ui-dropdown
-        [items]="items">
-      </ui-dropdown>
+      <ui-dropdown [items]="items"></ui-dropdown>
     </div>
   </div>
 </div>

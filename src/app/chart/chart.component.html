@@ -1,3 +1,14 @@
-<p>
-  chart works!
-</p>
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+     id="Carousel">
+  <h1 class="h2">{{title}}</h1>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <app-doc [pageData]="codes"></app-doc>
+  </div>
+  <div class="col-md-6">
+    <div class="demo-content float-right">
+      <ui-chart></ui-chart>
+    </div>
+  </div>
+</div>

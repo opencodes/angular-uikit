@@ -6,6 +6,7 @@ import { ModalComponent } from './modal.component';
   imports: [
     CommonModule
   ],
-  declarations: [ModalComponent]
+  declarations: [ModalComponent],
+  exports: [ModalComponent]
 })
 export class ModalModule { }

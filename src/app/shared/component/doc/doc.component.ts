@@ -8,7 +8,10 @@ import {Codes} from '../../demo';
 })
 export class DocComponent implements OnInit {
   @Input() pageData: Codes;
-  constructor() { }
+  language = 'html';
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
