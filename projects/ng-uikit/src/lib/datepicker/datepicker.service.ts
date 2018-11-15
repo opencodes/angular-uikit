@@ -18,6 +18,7 @@ export class DatepickerService {
   set dateObj(value: Date) {
     this._dateObj = value;
   }
+
   private _dateObj: Date;
 
   constructor() {
@@ -55,12 +56,14 @@ export class DatepickerService {
   getDateJsonObj(year, month, day, hours, minutes, seconds): DateObj {
     this.dateObj = new Date(year, month, day, hours, minutes, seconds);
     const d = this.dateObj;
+    const date = (d.getDate() <= 9) ? '0' + d.getDate() : d.getDate() + '';
+    const monthNumeric = (d.getMonth() <= 9) ? '0' + d.getMonth() : d.getMonth() + '';
     return {
       day: d.getDay(),
       dayString: DefaultLocaleWeekdays[d.getDay()],
       dayStringShort: DefaultLocaleWeekdaysShort[d.getDay()],
-      date: d.getDate(),
-      month: d.getMonth(),
+      date: date,
+      month: monthNumeric,
       monthString: DefaultLocaleMonths[d.getUTCMonth()],
       monthStringShort: DefaultLocaleMonthsShort[d.getUTCMonth()],
       time: d.getTime().toString(),
@@ -68,7 +71,8 @@ export class DatepickerService {
       minutes: d.getMinutes().toString(),
       seconds: d.getSeconds().toString(),
       year: d.getFullYear().toString(),
-      UTCString: d.toUTCString()
+      UTCString: d.toUTCString(),
+      numericDate: d.getFullYear() + '-' + monthNumeric + '-' + date// + '-' + d.getHours() + '-' + d.getSeconds()
     };
   }
 }
