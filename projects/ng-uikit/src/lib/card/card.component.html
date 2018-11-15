@@ -1,3 +1,7 @@
-<p>
-  card works!
-</p>
+<div class="card" style="width: 18rem;" *ngIf="config">
+  <img class="card-img-top" src="{{config.src}}" alt="{{config.alt || config.title}}" *ngIf="config.src">
+  <div class="card-body">
+    <h5 class="card-title">{{config.title}}</h5>
+    <ng-content></ng-content>
+  </div>
+</div>
