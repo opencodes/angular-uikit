@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'ui-modal',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
+  showModel: boolean;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  toggle() {
+    this.showModel = !this.showModel;
   }
 
 }
