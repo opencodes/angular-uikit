@@ -1,5 +1,236 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./projects/ng-uikit/src/lib/accordion/accordion.component.css":
+/*!*********************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/accordion/accordion.component.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/accordion/accordion.component.html":
+/*!**********************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/accordion/accordion.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"accordion\" id=\"accordionExample\">\r\n  <div class=\"card\" *ngFor=\"let item of items;let i=index;\">\r\n    <div class=\"card-header\" [attr.id]=\"'heading'+i\">\r\n      <h5 class=\"mb-0\">\r\n        <button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" [attr.data-target]=\"'#collapse'+i\"\r\n                [attr.aria-expanded]=\"item.isOpen\" [attr.aria-controls]=\"'collapse'+i\" (click)=\"toggle(i)\">\r\n          Collapsible Group Item #{{i}}\r\n        </button>\r\n      </h5>\r\n    </div>\r\n\r\n    <div [attr.id]=\"'collapse'+i\" class=\"collapse \" [ngClass]=\"{'show':item.isOpen}\"\r\n         [attr.aria-labelledby]=\"'heading'+i\" data-parent=\"#accordionExample\">\r\n      <div class=\"card-body\">\r\n        {{item.bodyText}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/accordion/accordion.component.ts":
+/*!********************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/accordion/accordion.component.ts ***!
+  \********************************************************************/
+/*! exports provided: AccordionComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionComponent", function() { return AccordionComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AccordionComponent = /** @class */ (function () {
+    function AccordionComponent() {
+        this.items = [{
+                headerText: 'Header 1',
+                bodyText: 'Body Text 1',
+                isOpen: true
+            }, {
+                headerText: 'Header 1',
+                bodyText: 'Body Text 2',
+                isOpen: false
+            }, {
+                headerText: 'Header 1',
+                bodyText: 'Body Text 3',
+                isOpen: false
+            }];
+    }
+    AccordionComponent.prototype.ngOnInit = function () {
+    };
+    AccordionComponent.prototype.toggle = function (i) {
+        var _this = this;
+        this.items.forEach(function (item, index) {
+            _this.items[index].isOpen = (index === i);
+        });
+    };
+    AccordionComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ui-accordion',
+            template: __webpack_require__(/*! ./accordion.component.html */ "./projects/ng-uikit/src/lib/accordion/accordion.component.html"),
+            styles: [__webpack_require__(/*! ./accordion.component.css */ "./projects/ng-uikit/src/lib/accordion/accordion.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AccordionComponent);
+    return AccordionComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/accordion/accordion.module.ts":
+/*!*****************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/accordion/accordion.module.ts ***!
+  \*****************************************************************/
+/*! exports provided: AccordionModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionModule", function() { return AccordionModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _accordion_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./accordion.component */ "./projects/ng-uikit/src/lib/accordion/accordion.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var AccordionModule = /** @class */ (function () {
+    function AccordionModule() {
+    }
+    AccordionModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+            ],
+            declarations: [_accordion_component__WEBPACK_IMPORTED_MODULE_2__["AccordionComponent"]],
+            exports: [_accordion_component__WEBPACK_IMPORTED_MODULE_2__["AccordionComponent"]]
+        })
+    ], AccordionModule);
+    return AccordionModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/card/card.component.css":
+/*!***********************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/card/card.component.css ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/card/card.component.html":
+/*!************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/card/card.component.html ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\" style=\"width: 18rem;\" *ngIf=\"config\">\r\n  <img class=\"card-img-top\" src=\"{{config.src}}\" alt=\"{{config.alt || config.title}}\" *ngIf=\"config.src\">\r\n  <div class=\"card-body\">\r\n    <h5 class=\"card-title\">{{config.title}}</h5>\r\n    <ng-content></ng-content>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/card/card.component.ts":
+/*!**********************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/card/card.component.ts ***!
+  \**********************************************************/
+/*! exports provided: CardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CardComponent", function() { return CardComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var CardComponent = /** @class */ (function () {
+    function CardComponent() {
+    }
+    CardComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], CardComponent.prototype, "config", void 0);
+    CardComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ui-card',
+            template: __webpack_require__(/*! ./card.component.html */ "./projects/ng-uikit/src/lib/card/card.component.html"),
+            styles: [__webpack_require__(/*! ./card.component.css */ "./projects/ng-uikit/src/lib/card/card.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], CardComponent);
+    return CardComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/card/card.module.ts":
+/*!*******************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/card/card.module.ts ***!
+  \*******************************************************/
+/*! exports provided: CardModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CardModule", function() { return CardModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _card_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./card.component */ "./projects/ng-uikit/src/lib/card/card.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var CardModule = /** @class */ (function () {
+    function CardModule() {
+    }
+    CardModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+            ],
+            declarations: [_card_component__WEBPACK_IMPORTED_MODULE_2__["CardComponent"]],
+            exports: [_card_component__WEBPACK_IMPORTED_MODULE_2__["CardComponent"]]
+        })
+    ], CardModule);
+    return CardModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "./projects/ng-uikit/src/lib/carousel/carousel.component.css":
 /*!*******************************************************************!*\
   !*** ./projects/ng-uikit/src/lib/carousel/carousel.component.css ***!
@@ -18,7 +249,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"carousel\" [ngStyle]=\"{width: width}\">\n  <ol class=\"carousel-indicators\">\n      <li data-target=\"#carouselExampleIndicators\" attr.data-slide-to=\"{{i}}\" *ngFor=\"let item of items; let i=index;\"\n          [ngClass]=\"{'active':i == activeIndex}\" (click)=\"goTo(i)\">\n      </li>\n  </ol>\n  <div class=\"carousel-inner\">\n    <div class=\"carousel-item\" *ngFor=\"let item of items; let i=index;\" [ngClass]=\"{'active':i == activeIndex}\">\n      <img src=\"{{item.src}}\" alt=\"{{item.alt}}\">\n      <div class=\"carousel-caption d-none d-md-block\">\n        <h5>{{item.alt}}</h5>\n        <p>{{item.alt}}</p>\n      </div>\n    </div>\n  </div>\n  <a class=\"carousel-control-prev\" (click)=\"prev()\" role=\"button\" data-slide=\"prev\">\n    <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Previous</span>\n  </a>\n  <a class=\"carousel-control-next\" (click)=\"next()\" role=\"button\" data-slide=\"next\">\n    <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n    <span class=\"sr-only\">Next</span>\n  </a>\n</div>\n"
+module.exports = "<div id=\"carouselExampleIndicators\" class=\"carousel slide\" data-ride=\"carousel\" [ngStyle]=\"{width: width}\">\r\n  <ol class=\"carousel-indicators\">\r\n      <li data-target=\"#carouselExampleIndicators\" attr.data-slide-to=\"{{i}}\" *ngFor=\"let item of items; let i=index;\"\r\n          [ngClass]=\"{'active':i == activeIndex}\" (click)=\"goTo(i)\">\r\n      </li>\r\n  </ol>\r\n  <div class=\"carousel-inner\">\r\n    <div class=\"carousel-item\" *ngFor=\"let item of items; let i=index;\" [ngClass]=\"{'active':i == activeIndex}\">\r\n      <img src=\"{{item.src}}\" alt=\"{{item.alt}}\">\r\n      <div class=\"carousel-caption d-none d-md-block\">\r\n        <h5>{{item.alt}}</h5>\r\n        <p>{{item.alt}}</p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <a class=\"carousel-control-prev\" (click)=\"prev()\" role=\"button\" data-slide=\"prev\">\r\n    <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\r\n    <span class=\"sr-only\">Previous</span>\r\n  </a>\r\n  <a class=\"carousel-control-next\" (click)=\"next()\" role=\"button\" data-slide=\"next\">\r\n    <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\r\n    <span class=\"sr-only\">Next</span>\r\n  </a>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -160,7 +391,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  chart works!\n</p>\n"
+module.exports = "<p>\r\n  chart works!\r\n</p>\r\n"
 
 /***/ }),
 
@@ -235,10 +466,143 @@ var ChartModule = /** @class */ (function () {
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
             ],
-            declarations: [_chart_component__WEBPACK_IMPORTED_MODULE_2__["ChartComponent"]]
+            declarations: [_chart_component__WEBPACK_IMPORTED_MODULE_2__["ChartComponent"]],
+            exports: [_chart_component__WEBPACK_IMPORTED_MODULE_2__["ChartComponent"]]
         })
     ], ChartModule);
     return ChartModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/datatable/datatable.component.css":
+/*!*********************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/datatable/datatable.component.css ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".ui-dt-table{\r\n\r\n}\r\n.ui-dt-thead{\r\n  border-bottom: 1px solid #999999;\r\n  padding: 5px;\r\n}\r\n.ui-dt-thead .ui-dt-cell{\r\n  font-weight: 500;\r\n}\r\n.ui-dt-tbody{\r\n\r\n}\r\n.ui-dt-row{\r\n  border-bottom: 1px solid #999999;\r\n  padding: 5px;\r\n}\r\n.ui-dt-cell{\r\n  -ms-word-break: break-word;\r\n  word-break: break-word;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/datatable/datatable.component.html":
+/*!**********************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/datatable/datatable.component.html ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"ui-dt-table\">\r\n  <div class=\"ui-dt-thead row\">\r\n      <div  *ngFor=\"let col of columns\" [ngClass]=\"getColumnClass(col)\">\r\n        {{col.label}}\r\n        <i class=\"fas fa-sort-amount-up\"></i>\r\n      </div>\r\n  </div>\r\n  <div class=\"ui-dt-tbody\">\r\n    <div *ngFor=\"let row of rows;let i=index;\" class=\"row ui-dt-row\">\r\n      <div [attr.class]=\"col.className +' ui-dt-cell'\" *ngFor=\"let col of columns;let k=index;\">\r\n        {{row[k]}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/datatable/datatable.component.ts":
+/*!********************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/datatable/datatable.component.ts ***!
+  \********************************************************************/
+/*! exports provided: DatatableComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatatableComponent", function() { return DatatableComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DatatableComponent = /** @class */ (function () {
+    function DatatableComponent() {
+        this.page = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.sorted = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    }
+    DatatableComponent.prototype.ngOnInit = function () {
+    };
+    DatatableComponent.prototype.getColumnClass = function (col) {
+        var className = " ui-dt-cell ";
+        if (col.className) {
+            className += col.className + ' ';
+        }
+        if (col.sortable) {
+            className += ' sortable';
+        }
+        return className;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], DatatableComponent.prototype, "rows", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], DatatableComponent.prototype, "columns", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], DatatableComponent.prototype, "page", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], DatatableComponent.prototype, "sorted", void 0);
+    DatatableComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ui-datatable',
+            template: __webpack_require__(/*! ./datatable.component.html */ "./projects/ng-uikit/src/lib/datatable/datatable.component.html"),
+            styles: [__webpack_require__(/*! ./datatable.component.css */ "./projects/ng-uikit/src/lib/datatable/datatable.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DatatableComponent);
+    return DatatableComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/datatable/datatable.module.ts":
+/*!*****************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/datatable/datatable.module.ts ***!
+  \*****************************************************************/
+/*! exports provided: DatatableModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatatableModule", function() { return DatatableModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _datatable_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./datatable.component */ "./projects/ng-uikit/src/lib/datatable/datatable.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var DatatableModule = /** @class */ (function () {
+    function DatatableModule() {
+    }
+    DatatableModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+            ],
+            declarations: [_datatable_component__WEBPACK_IMPORTED_MODULE_2__["DatatableComponent"]],
+            exports: [_datatable_component__WEBPACK_IMPORTED_MODULE_2__["DatatableComponent"]]
+        })
+    ], DatatableModule);
+    return DatatableModule;
 }());
 
 
@@ -296,6 +660,7 @@ var DatepickerComponent = /** @class */ (function () {
     function DatepickerComponent(datepickerSvc) {
         this.datepickerSvc = datepickerSvc;
         this.selected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.mode = 'single' || 'range';
         this.items = [
             {
                 url: 'a',
@@ -312,6 +677,10 @@ var DatepickerComponent = /** @class */ (function () {
             }
         ];
         this.defaultLocaleWeekdaysShort = _datepicker_interface__WEBPACK_IMPORTED_MODULE_2__["DefaultLocaleWeekdaysShort"];
+        this.range = {
+            from: null,
+            to: null
+        };
     }
     DatepickerComponent.prototype.ngOnInit = function () {
         var d = new Date();
@@ -319,23 +688,60 @@ var DatepickerComponent = /** @class */ (function () {
         this.daysList = this.datepickerSvc.getDatesOfMonth();
         console.log(this.selectedDateTime);
     };
+    DatepickerComponent.prototype.isWithinRange = function (day) {
+        if (day) {
+            var a = this.selectedDateTime.numericDate.split('-');
+            a[2] = (day <= 9) ? '0' + day : day + '';
+            var today = parseInt(a.join(''), 10);
+            var from = parseInt(this.range.from.numericDate.split('-').join(''), 10);
+            var to = parseInt(this.range.to.numericDate.split('-').join(''), 10);
+            console.log(today, from, to);
+            return (today >= from && today <= to);
+        }
+        return false;
+    };
     DatepickerComponent.prototype.getSelectedClass = function (day) {
-        return { 'c-datepicker__day--selected': this.selectedDateTime.date === parseInt(day, 10) };
+        var isSelected = false;
+        day = parseInt(day, 10);
+        if (this.mode === 'range') {
+            if (this.range.from) {
+                isSelected = (this.range.from.date === day);
+            }
+            if (this.range.from && this.range.to) {
+                isSelected = this.isWithinRange(day);
+            }
+        }
+        else {
+            isSelected = this.selectedDateTime.date === day;
+        }
+        return { 'c-datepicker__day--selected': isSelected };
     };
     DatepickerComponent.prototype.setDate = function (day) {
         var d = this.selectedDateTime;
         this.selectedDateTime = this.datepickerSvc.getDateJsonObj(d.year, d.month, day, d.hours, d.minutes, d.seconds);
-        this.selected.emit(this.selectedDateTime);
+        if (this.mode === 'range') {
+            if (this.range.from) {
+                this.range.to = this.selectedDateTime;
+            }
+            else {
+                this.range.from = this.selectedDateTime;
+            }
+            this.selected.emit(this.range);
+        }
+        else {
+            this.selected.emit(this.selectedDateTime);
+        }
+        console.log(this.selectedDateTime, this.range);
     };
     DatepickerComponent.prototype.prevMonth = function () {
         var d = this.selectedDateTime;
-        this.selectedDateTime = this.datepickerSvc.getDateJsonObj(d.year, d.month - 1, d.date, d.hours, d.minutes, d.seconds);
+        this.selectedDateTime = this.datepickerSvc.getDateJsonObj(d.year, parseInt(d.month, 10) - 1, d.date, d.hours, d.minutes, d.seconds);
         this.daysList = this.datepickerSvc.getDatesOfMonth();
         this.selected.emit(this.selectedDateTime);
     };
     DatepickerComponent.prototype.nextMonth = function () {
         var d = this.selectedDateTime;
-        this.selectedDateTime = this.datepickerSvc.getDateJsonObj(d.year, d.month + 1, d.date, d.hours, d.minutes, d.seconds);
+        this.selectedDateTime = this.datepickerSvc.getDateJsonObj(d.year, parseInt(d.month, 10) + 1, d.date, d.hours, d.minutes, d.seconds);
         this.daysList = this.datepickerSvc.getDatesOfMonth();
         this.selected.emit(this.selectedDateTime);
     };
@@ -343,6 +749,10 @@ var DatepickerComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
     ], DatepickerComponent.prototype, "selected", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], DatepickerComponent.prototype, "mode", void 0);
     DatepickerComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'ui-datepicker',
@@ -492,12 +902,14 @@ var DatepickerService = /** @class */ (function () {
     DatepickerService.prototype.getDateJsonObj = function (year, month, day, hours, minutes, seconds) {
         this.dateObj = new Date(year, month, day, hours, minutes, seconds);
         var d = this.dateObj;
+        var date = (d.getDate() <= 9) ? '0' + d.getDate() : d.getDate() + '';
+        var monthNumeric = (d.getMonth() <= 9) ? '0' + d.getMonth() : d.getMonth() + '';
         return {
             day: d.getDay(),
             dayString: _datepicker_interface__WEBPACK_IMPORTED_MODULE_1__["DefaultLocaleWeekdays"][d.getDay()],
             dayStringShort: _datepicker_interface__WEBPACK_IMPORTED_MODULE_1__["DefaultLocaleWeekdaysShort"][d.getDay()],
-            date: d.getDate(),
-            month: d.getMonth(),
+            date: date,
+            month: monthNumeric,
             monthString: _datepicker_interface__WEBPACK_IMPORTED_MODULE_1__["DefaultLocaleMonths"][d.getUTCMonth()],
             monthStringShort: _datepicker_interface__WEBPACK_IMPORTED_MODULE_1__["DefaultLocaleMonthsShort"][d.getUTCMonth()],
             time: d.getTime().toString(),
@@ -505,7 +917,8 @@ var DatepickerService = /** @class */ (function () {
             minutes: d.getMinutes().toString(),
             seconds: d.getSeconds().toString(),
             year: d.getFullYear().toString(),
-            UTCString: d.toUTCString()
+            UTCString: d.toUTCString(),
+            numericDate: d.getFullYear() + '-' + monthNumeric + '-' + date // + '-' + d.getHours() + '-' + d.getSeconds()
         };
     };
     DatepickerService = __decorate([
@@ -644,6 +1057,113 @@ var DropdownModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./projects/ng-uikit/src/lib/modal/modal.component.css":
+/*!*************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/modal/modal.component.css ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".show{\r\n  display: block;\r\n  padding-right: 16px;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/modal/modal.component.html":
+/*!**************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/modal/modal.component.html ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<!-- Button trigger modal -->\r\n<button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#exampleModal\" (click)=\"toggle()\">\r\n  Launch demo modal\r\n</button>\r\n\r\n<!-- Modal -->\r\n<div class=\"modal fade\" id=\"exampleModal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"exampleModalLabel\" aria-hidden=\"true\" [ngClass]=\"{'show':showModel}\">\r\n  <div class=\"modal-dialog\" role=\"document\">\r\n    <div class=\"modal-content\">\r\n      <div class=\"modal-header\">\r\n        <h5 class=\"modal-title\" id=\"exampleModalLabel\">Modal title</h5>\r\n        <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\" (click)=\"toggle()\">\r\n          <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n      </div>\r\n      <div class=\"modal-body\">\r\n        <ng-content></ng-content>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\" (click)=\"toggle()\">Close</button>\r\n        <button type=\"button\" class=\"btn btn-primary\" (click)=\"toggle()\">Save changes</button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"modal-backdrop fade show\" *ngIf=\"showModel\"></div>\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/modal/modal.component.ts":
+/*!************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/modal/modal.component.ts ***!
+  \************************************************************/
+/*! exports provided: ModalComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalComponent", function() { return ModalComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ModalComponent = /** @class */ (function () {
+    function ModalComponent() {
+    }
+    ModalComponent.prototype.ngOnInit = function () {
+    };
+    ModalComponent.prototype.toggle = function () {
+        this.showModel = !this.showModel;
+    };
+    ModalComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ui-modal',
+            template: __webpack_require__(/*! ./modal.component.html */ "./projects/ng-uikit/src/lib/modal/modal.component.html"),
+            styles: [__webpack_require__(/*! ./modal.component.css */ "./projects/ng-uikit/src/lib/modal/modal.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], ModalComponent);
+    return ModalComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/modal/modal.module.ts":
+/*!*********************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/modal/modal.module.ts ***!
+  \*********************************************************/
+/*! exports provided: ModalModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModalModule", function() { return ModalModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _modal_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal.component */ "./projects/ng-uikit/src/lib/modal/modal.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var ModalModule = /** @class */ (function () {
+    function ModalModule() {
+    }
+    ModalModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+            ],
+            declarations: [_modal_component__WEBPACK_IMPORTED_MODULE_2__["ModalComponent"]],
+            exports: [_modal_component__WEBPACK_IMPORTED_MODULE_2__["ModalComponent"]]
+        })
+    ], ModalModule);
+    return ModalModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "./projects/ng-uikit/src/lib/ng-uikit.component.ts":
 /*!*********************************************************!*\
   !*** ./projects/ng-uikit/src/lib/ng-uikit.component.ts ***!
@@ -721,6 +1241,214 @@ var NgUikitModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./projects/ng-uikit/src/lib/tab/tab.component.css":
+/*!*********************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/tab/tab.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/tab/tab.component.html":
+/*!**********************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/tab/tab.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\r\n  <li class=\"nav-item\" *ngFor=\"let item of items;let i=index;\">\r\n    <a class=\"nav-link \"\r\n       [attr.id]=\"'tab'+i\"\r\n       data-toggle=\"tab\"\r\n       (click)=\"toggle(i)\"\r\n       role=\"tab\" aria-controls=\"home\"\r\n       [attr.aria-selected]=\"item.isOpen\"\r\n       [ngClass]=\"{'active':item.isOpen}\">\r\n       {{item.headerText}}\r\n    </a>\r\n  </li>\r\n</ul>\r\n<div class=\"tab-content\" id=\"myTabContent\">\r\n  <div class=\"tab-pane fade \"\r\n       [attr.id]=\"'tab'+i\"\r\n       [ngClass]=\"{'active show':item.isOpen}\"\r\n       role=\"tabpanel\"\r\n       aria-labelledby=\"home-tab\"\r\n       *ngFor=\"let item of items;let i=index;\">\r\n       {{item.bodyText}}\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/tab/tab.component.ts":
+/*!********************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/tab/tab.component.ts ***!
+  \********************************************************/
+/*! exports provided: TabComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabComponent", function() { return TabComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TabComponent = /** @class */ (function () {
+    function TabComponent() {
+    }
+    TabComponent.prototype.ngOnInit = function () {
+    };
+    TabComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ui-tab',
+            template: __webpack_require__(/*! ./tab.component.html */ "./projects/ng-uikit/src/lib/tab/tab.component.html"),
+            styles: [__webpack_require__(/*! ./tab.component.css */ "./projects/ng-uikit/src/lib/tab/tab.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], TabComponent);
+    return TabComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/tab/tab.module.ts":
+/*!*****************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/tab/tab.module.ts ***!
+  \*****************************************************/
+/*! exports provided: TabModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabModule", function() { return TabModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _tab_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tab.component */ "./projects/ng-uikit/src/lib/tab/tab.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var TabModule = /** @class */ (function () {
+    function TabModule() {
+    }
+    TabModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+            ],
+            declarations: [_tab_component__WEBPACK_IMPORTED_MODULE_2__["TabComponent"]],
+            exports: [_tab_component__WEBPACK_IMPORTED_MODULE_2__["TabComponent"]]
+        })
+    ], TabModule);
+    return TabModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/tooltip/tooltip.component.css":
+/*!*****************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/tooltip/tooltip.component.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/tooltip/tooltip.component.html":
+/*!******************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/tooltip/tooltip.component.html ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\r\n  tooltip works!\r\n</p>\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/tooltip/tooltip.component.ts":
+/*!****************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/tooltip/tooltip.component.ts ***!
+  \****************************************************************/
+/*! exports provided: TooltipComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TooltipComponent", function() { return TooltipComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TooltipComponent = /** @class */ (function () {
+    function TooltipComponent() {
+    }
+    TooltipComponent.prototype.ngOnInit = function () {
+    };
+    TooltipComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ui-tooltip',
+            template: __webpack_require__(/*! ./tooltip.component.html */ "./projects/ng-uikit/src/lib/tooltip/tooltip.component.html"),
+            styles: [__webpack_require__(/*! ./tooltip.component.css */ "./projects/ng-uikit/src/lib/tooltip/tooltip.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], TooltipComponent);
+    return TooltipComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/tooltip/tooltip.module.ts":
+/*!*************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/tooltip/tooltip.module.ts ***!
+  \*************************************************************/
+/*! exports provided: TooltipModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TooltipModule", function() { return TooltipModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _tooltip_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tooltip.component */ "./projects/ng-uikit/src/lib/tooltip/tooltip.component.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var TooltipModule = /** @class */ (function () {
+    function TooltipModule() {
+    }
+    TooltipModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+            ],
+            declarations: [_tooltip_component__WEBPACK_IMPORTED_MODULE_2__["TooltipComponent"]],
+            exports: [_tooltip_component__WEBPACK_IMPORTED_MODULE_2__["TooltipComponent"]]
+        })
+    ], TooltipModule);
+    return TooltipModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/$$_lazy_route_resource lazy recursive":
 /*!**********************************************************!*\
   !*** ./src/$$_lazy_route_resource lazy namespace object ***!
@@ -762,7 +1490,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  accordion works!\n</p>\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-accordion></ui-accordion>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -789,6 +1517,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var AccordionComponent = /** @class */ (function () {
     function AccordionComponent() {
+        this.codes = {
+            import: "import {CarouselModule} from 'ng-uikit'",
+            component: "export class Demo implements OnInit { }",
+            html: "<ui-accordion></ui-accordion>",
+            properties: [{
+                    name: '',
+                    type: '',
+                    default: '',
+                    description: ''
+                }],
+            events: [{
+                    name: '',
+                    parameters: '',
+                    description: ''
+                }],
+            styling: [{
+                    selector: '',
+                    description: ''
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Accordion';
     }
     AccordionComponent.prototype.ngOnInit = function () {
     };
@@ -879,22 +1629,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _ngx_prism_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @ngx-prism/core */ "./node_modules/@ngx-prism/core/dist/index.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _projects_ng_uikit_src_lib_ng_uikit_module__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/ng-uikit.module */ "./projects/ng-uikit/src/lib/ng-uikit.module.ts");
-/* harmony import */ var _projects_ng_uikit_src_lib_carousel_carousel_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/carousel/carousel.module */ "./projects/ng-uikit/src/lib/carousel/carousel.module.ts");
-/* harmony import */ var _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./carousel/carousel.component */ "./src/app/carousel/carousel.component.ts");
-/* harmony import */ var _projects_ng_uikit_src_lib_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/datepicker/datepicker.module */ "./projects/ng-uikit/src/lib/datepicker/datepicker.module.ts");
-/* harmony import */ var _projects_ng_uikit_src_lib_chart_chart_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/chart/chart.module */ "./projects/ng-uikit/src/lib/chart/chart.module.ts");
-/* harmony import */ var _chart_chart_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./chart/chart.component */ "./src/app/chart/chart.component.ts");
-/* harmony import */ var _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./datepicker/datepicker.component */ "./src/app/datepicker/datepicker.component.ts");
-/* harmony import */ var _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./dropdown/dropdown.component */ "./src/app/dropdown/dropdown.component.ts");
-/* harmony import */ var _projects_ng_uikit_src_lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/dropdown/dropdown.module */ "./projects/ng-uikit/src/lib/dropdown/dropdown.module.ts");
-/* harmony import */ var _modal_modal_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./modal/modal.component */ "./src/app/modal/modal.component.ts");
-/* harmony import */ var _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./accordion/accordion.component */ "./src/app/accordion/accordion.component.ts");
-/* harmony import */ var _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./tooltip/tooltip.component */ "./src/app/tooltip/tooltip.component.ts");
-/* harmony import */ var _card_card_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./card/card.component */ "./src/app/card/card.component.ts");
-/* harmony import */ var _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./datatable/datatable.component */ "./src/app/datatable/datatable.component.ts");
-/* harmony import */ var _tab_tab_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./tab/tab.component */ "./src/app/tab/tab.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_ng_uikit_module__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/ng-uikit.module */ "./projects/ng-uikit/src/lib/ng-uikit.module.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_carousel_carousel_module__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/carousel/carousel.module */ "./projects/ng-uikit/src/lib/carousel/carousel.module.ts");
+/* harmony import */ var _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./carousel/carousel.component */ "./src/app/carousel/carousel.component.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/datepicker/datepicker.module */ "./projects/ng-uikit/src/lib/datepicker/datepicker.module.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_chart_chart_module__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/chart/chart.module */ "./projects/ng-uikit/src/lib/chart/chart.module.ts");
+/* harmony import */ var _chart_chart_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./chart/chart.component */ "./src/app/chart/chart.component.ts");
+/* harmony import */ var _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./datepicker/datepicker.component */ "./src/app/datepicker/datepicker.component.ts");
+/* harmony import */ var _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./dropdown/dropdown.component */ "./src/app/dropdown/dropdown.component.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/dropdown/dropdown.module */ "./projects/ng-uikit/src/lib/dropdown/dropdown.module.ts");
+/* harmony import */ var _modal_modal_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./modal/modal.component */ "./src/app/modal/modal.component.ts");
+/* harmony import */ var _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./accordion/accordion.component */ "./src/app/accordion/accordion.component.ts");
+/* harmony import */ var _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./tooltip/tooltip.component */ "./src/app/tooltip/tooltip.component.ts");
+/* harmony import */ var _card_card_component__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./card/card.component */ "./src/app/card/card.component.ts");
+/* harmony import */ var _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./datatable/datatable.component */ "./src/app/datatable/datatable.component.ts");
+/* harmony import */ var _tab_tab_component__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./tab/tab.component */ "./src/app/tab/tab.component.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_accordion_accordion_module__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/accordion/accordion.module */ "./projects/ng-uikit/src/lib/accordion/accordion.module.ts");
+/* harmony import */ var _shared_component_doc_doc_component__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./shared/component/doc/doc.component */ "./src/app/shared/component/doc/doc.component.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_card_card_module__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/card/card.module */ "./projects/ng-uikit/src/lib/card/card.module.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_datatable_datatable_module__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/datatable/datatable.module */ "./projects/ng-uikit/src/lib/datatable/datatable.module.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_modal_modal_module__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/modal/modal.module */ "./projects/ng-uikit/src/lib/modal/modal.module.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_tab_tab_module__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/tab/tab.module */ "./projects/ng-uikit/src/lib/tab/tab.module.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_tooltip_tooltip_module__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/tooltip/tooltip.module */ "./projects/ng-uikit/src/lib/tooltip/tooltip.module.ts");
+/* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var _shared_api_service__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./shared/api.service */ "./src/app/shared/api.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -921,47 +1681,68 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
+
+
+
+
+
+
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-                _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_7__["CarouselComponent"],
-                _chart_chart_component__WEBPACK_IMPORTED_MODULE_10__["ChartComponent"],
-                _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_11__["DatepickerComponent"],
-                _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_12__["DropdownComponent"],
-                _modal_modal_component__WEBPACK_IMPORTED_MODULE_14__["ModalComponent"],
-                _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_15__["AccordionComponent"],
-                _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_16__["TooltipComponent"],
-                _card_card_component__WEBPACK_IMPORTED_MODULE_17__["CardComponent"],
-                _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_18__["DatatableComponent"],
-                _tab_tab_component__WEBPACK_IMPORTED_MODULE_19__["TabComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
+                _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_8__["CarouselComponent"],
+                _chart_chart_component__WEBPACK_IMPORTED_MODULE_11__["ChartComponent"],
+                _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_12__["DatepickerComponent"],
+                _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_13__["DropdownComponent"],
+                _modal_modal_component__WEBPACK_IMPORTED_MODULE_15__["ModalComponent"],
+                _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_16__["AccordionComponent"],
+                _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_17__["TooltipComponent"],
+                _card_card_component__WEBPACK_IMPORTED_MODULE_18__["CardComponent"],
+                _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_19__["DatatableComponent"],
+                _tab_tab_component__WEBPACK_IMPORTED_MODULE_20__["TabComponent"],
+                _shared_component_doc_doc_component__WEBPACK_IMPORTED_MODULE_22__["DocComponent"],
+                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_28__["DashboardComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _projects_ng_uikit_src_lib_ng_uikit_module__WEBPACK_IMPORTED_MODULE_5__["NgUikitModule"],
-                _projects_ng_uikit_src_lib_carousel_carousel_module__WEBPACK_IMPORTED_MODULE_6__["CarouselModule"],
-                _projects_ng_uikit_src_lib_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_8__["DatepickerModule"],
-                _projects_ng_uikit_src_lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_13__["DropdownModule"],
-                _projects_ng_uikit_src_lib_chart_chart_module__WEBPACK_IMPORTED_MODULE_9__["ChartModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClientModule"],
+                _projects_ng_uikit_src_lib_ng_uikit_module__WEBPACK_IMPORTED_MODULE_6__["NgUikitModule"],
+                _projects_ng_uikit_src_lib_carousel_carousel_module__WEBPACK_IMPORTED_MODULE_7__["CarouselModule"],
+                _projects_ng_uikit_src_lib_accordion_accordion_module__WEBPACK_IMPORTED_MODULE_21__["AccordionModule"],
+                _projects_ng_uikit_src_lib_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_9__["DatepickerModule"],
+                _projects_ng_uikit_src_lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_14__["DropdownModule"],
+                _projects_ng_uikit_src_lib_chart_chart_module__WEBPACK_IMPORTED_MODULE_10__["ChartModule"],
+                _projects_ng_uikit_src_lib_card_card_module__WEBPACK_IMPORTED_MODULE_23__["CardModule"],
+                _projects_ng_uikit_src_lib_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_9__["DatepickerModule"],
+                _projects_ng_uikit_src_lib_datatable_datatable_module__WEBPACK_IMPORTED_MODULE_24__["DatatableModule"],
+                _projects_ng_uikit_src_lib_modal_modal_module__WEBPACK_IMPORTED_MODULE_25__["ModalModule"],
+                _projects_ng_uikit_src_lib_tab_tab_module__WEBPACK_IMPORTED_MODULE_26__["TabModule"],
+                _projects_ng_uikit_src_lib_tooltip_tooltip_module__WEBPACK_IMPORTED_MODULE_27__["TooltipModule"],
                 _ngx_prism_core__WEBPACK_IMPORTED_MODULE_3__["PrismModule"],
                 _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot([
-                    { path: 'Accordion', component: _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_15__["AccordionComponent"] },
-                    { path: 'Card', component: _card_card_component__WEBPACK_IMPORTED_MODULE_17__["CardComponent"] },
-                    { path: 'Carousel', component: _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_7__["CarouselComponent"] },
-                    { path: 'Chart', component: _chart_chart_component__WEBPACK_IMPORTED_MODULE_10__["ChartComponent"] },
-                    { path: 'Datatable', component: _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_18__["DatatableComponent"] },
-                    { path: 'Datepicker', component: _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_11__["DatepickerComponent"] },
-                    { path: 'Dropdown', component: _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_12__["DropdownComponent"] },
-                    { path: 'Modal', component: _modal_modal_component__WEBPACK_IMPORTED_MODULE_14__["ModalComponent"] },
-                    { path: 'Tab', component: _tab_tab_component__WEBPACK_IMPORTED_MODULE_19__["TabComponent"] },
-                    { path: 'Tooltip', component: _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_16__["TooltipComponent"] },
+                    { path: '', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_28__["DashboardComponent"] },
+                    { path: 'Accordion', component: _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_16__["AccordionComponent"] },
+                    { path: 'Card', component: _card_card_component__WEBPACK_IMPORTED_MODULE_18__["CardComponent"] },
+                    { path: 'Carousel', component: _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_8__["CarouselComponent"] },
+                    { path: 'Chart', component: _chart_chart_component__WEBPACK_IMPORTED_MODULE_11__["ChartComponent"] },
+                    { path: 'Datatable', component: _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_19__["DatatableComponent"] },
+                    { path: 'Datepicker', component: _datepicker_datepicker_component__WEBPACK_IMPORTED_MODULE_12__["DatepickerComponent"] },
+                    { path: 'Dropdown', component: _dropdown_dropdown_component__WEBPACK_IMPORTED_MODULE_13__["DropdownComponent"] },
+                    { path: 'Modal', component: _modal_modal_component__WEBPACK_IMPORTED_MODULE_15__["ModalComponent"] },
+                    { path: 'Tab', component: _tab_tab_component__WEBPACK_IMPORTED_MODULE_20__["TabComponent"] },
+                    { path: 'Tooltip', component: _tooltip_tooltip_component__WEBPACK_IMPORTED_MODULE_17__["TooltipComponent"] },
                 ], { useHash: true })
             ],
-            providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+            providers: [_shared_api_service__WEBPACK_IMPORTED_MODULE_29__["ApiService"]],
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -989,7 +1770,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  card works!\n</p>\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-card></ui-card>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1016,6 +1797,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var CardComponent = /** @class */ (function () {
     function CardComponent() {
+        this.codes = {
+            import: "import {CarouselModule} from 'ng-uikit'",
+            component: "export class Demo implements OnInit { }",
+            html: "<ui-accordion></ui-accordion>",
+            properties: [{
+                    name: '',
+                    type: '',
+                    default: '',
+                    description: ''
+                }],
+            events: [{
+                    name: '',
+                    parameters: '',
+                    description: ''
+                }],
+            styling: [{
+                    selector: '',
+                    description: ''
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Card';
     }
     CardComponent.prototype.ngOnInit = function () {
     };
@@ -1052,7 +1855,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">Carousel</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <h5>Import</h5>\r\n    <ngx-prism [language]=\"language\" [code]=\"codes[0]\"></ngx-prism>\r\n    <h5>Component</h5>\r\n    <ngx-prism [language]=\"language\" [code]=\"codes[1]\"></ngx-prism>\r\n    <h5>Html Template</h5>\r\n    <p>Carausel requires items</p>\r\n    <ngx-prism [language]=\"language\" [code]=\"codes[2]\"></ngx-prism>\r\n    <h5>Properties</h5>\r\n    <div class=\"table-responsive\">\r\n      <table class=\"table table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Type</th>\r\n          <th>Default</th>\r\n          <th>Description</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n          <td>items</td>\r\n          <td>Array[]</td>\r\n          <td>[]</td>\r\n          <td>\r\n            <ngx-prism [language]=\"language\" [code]=\"'Array[{src: ..., alt: ... }]'\"></ngx-prism>\r\n          </td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n    <h5>Events</h5>\r\n    <div class=\"table-responsive\">\r\n      <table class=\"table table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Parameters</th>\r\n          <th>Description</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n          <td>afterNext</td>\r\n          <td>event</td>\r\n          <td>Emit event with moved item info.</td>\r\n        </tr>\r\n        <tr>\r\n          <td>afterPrev</td>\r\n          <td>event</td>\r\n          <td>Emit event with moved item info.</td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n    <h5>Styling</h5>\r\n    <div class=\"table-responsive\">\r\n      <table class=\"table table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Element</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr>\r\n          <td>.carousel </td>\r\n          <td>Carousel parent class</td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-carousel\r\n        [items]=\"items\"\r\n        (afterNext)=\"logEvent($event)\"\r\n        (afterPrev)=\"logEvent($event)\">\r\n      </ui-carousel>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">Carousel</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-carousel\r\n        [items]=\"items\"\r\n        (afterNext)=\"logEvent($event)\"\r\n        (afterPrev)=\"logEvent($event)\">\r\n      </ui-carousel>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1093,8 +1896,28 @@ var CarouselComponent = /** @class */ (function () {
                 alt: 'Third slide'
             }
         ];
-        this.codes = ["import {CarouselModule} from 'ng-uikit'", "export class CarouselComponent implements OnInit {\n\n    items = [\n      {\n        src: 'https://via.placeholder.com/600x400/367fa9/FFFFFF?auto=yes&bg=777&fg=555&text=First slide',\n        alt: 'First slide'\n      },\n      {\n        src: 'https://via.placeholder.com/600x400/dd4b39/FFFFFF?auto=yes&bg=777&fg=555&text=Second slide',\n        alt: 'Second slide'\n      },\n      {\n        src: 'https://via.placeholder.com/600x400/00a65a/FFFFFF?auto=yes&bg=777&fg=555&text=Third slide',\n        alt: 'Third slide'\n      }\n    ];\n    logEvent(e) {\n      console.log(e);\n    }\n  }\n  ", "<ui-carousel\n    [items]=\"items\"\n    (afterNext)=\"logEvent($event)\"\n    (afterPrev)=\"logEvent($event)\">\n</ui-carousel>"];
-        this.language = 'js';
+        this.codes = {
+            import: "import {CarouselModule} from 'ng-uikit'",
+            component: "export class CarouselComponent implements OnInit {\n\n    items = [\n      {\n        src: 'https://via.placeholder.com/600x400/367fa9/FFFFFF?auto=yes&bg=777&fg=555&text=First slide',\n        alt: 'First slide'\n      },\n      {\n        src: 'https://via.placeholder.com/600x400/dd4b39/FFFFFF?auto=yes&bg=777&fg=555&text=Second slide',\n        alt: 'Second slide'\n      },\n      {\n        src: 'https://via.placeholder.com/600x400/00a65a/FFFFFF?auto=yes&bg=777&fg=555&text=Third slide',\n        alt: 'Third slide'\n      }\n    ];\n    logEvent(e) {\n      console.log(e);\n    }\n  }",
+            html: "<ui-carousel\n    [items]=\"items\"\n    (afterNext)=\"logEvent($event)\"\n    (afterPrev)=\"logEvent($event)\">\n</ui-carousel>",
+            properties: [{
+                    name: '',
+                    type: '',
+                    default: '',
+                    description: ''
+                }],
+            events: [{
+                    name: '',
+                    parameters: '',
+                    description: ''
+                }],
+            styling: [{
+                    selector: '',
+                    description: ''
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Modal';
     }
     CarouselComponent.prototype.ngOnInit = function () {
     };
@@ -1134,7 +1957,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  chart works!\n</p>\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-chart></ui-chart>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1161,6 +1984,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var ChartComponent = /** @class */ (function () {
     function ChartComponent() {
+        this.codes = {
+            import: "import {CarouselModule} from 'ng-uikit'",
+            component: "export class Demo implements OnInit { }",
+            html: "<ui-chart></ui-chart>",
+            properties: [{
+                    name: '',
+                    type: '',
+                    default: '',
+                    description: ''
+                }],
+            events: [{
+                    name: '',
+                    parameters: '',
+                    description: ''
+                }],
+            styling: [{
+                    selector: '',
+                    description: ''
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Chart';
     }
     ChartComponent.prototype.ngOnInit = function () {
     };
@@ -1173,6 +2018,108 @@ var ChartComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], ChartComponent);
     return ChartComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/dashboard/dashboard.component.css":
+/*!***************************************************!*\
+  !*** ./src/app/dashboard/dashboard.component.css ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/dashboard/dashboard.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/dashboard/dashboard.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">Get Started</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <h5>Download</h5>\r\n    <ngx-prism [language]=\"language\" [code]=\"codes.download\"></ngx-prism>\r\n    <h5>Dependencies</h5>\r\n    <div *ngFor=\"let dependency of codes.dependencies\">\r\n      <ngx-prism [language]=\"language\" [code]=\"dependency\" ></ngx-prism>\r\n    </div>\r\n    <h5>Import</h5>\r\n    <ngx-prism [language]=\"language\" [code]=\"codes.import\"></ngx-prism>\r\n    <h5>Html</h5>\r\n    <ngx-prism [language]=\"language\" [code]=\"codes.html\"></ngx-prism>\r\n    <h5>Modules</h5>\r\n    <div class=\"table-responsive\">\r\n      <table class=\"table table-striped\">\r\n        <thead>\r\n        <tr>\r\n          <th>Name</th>\r\n          <th>Description</th>\r\n        </tr>\r\n        </thead>\r\n        <tbody>\r\n        <tr *ngFor=\"let property of codes.modules\">\r\n          <td>{{property.name}}</td>\r\n          <td>{{property.description}}</td>\r\n        </tr>\r\n        </tbody>\r\n      </table>\r\n    </div>\r\n  </div>\r\n\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/dashboard/dashboard.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/dashboard/dashboard.component.ts ***!
+  \**************************************************/
+/*! exports provided: DashboardComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DashboardComponent", function() { return DashboardComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DashboardComponent = /** @class */ (function () {
+    function DashboardComponent() {
+        this.codes = {
+            download: "npm install ng-uikit --save",
+            import: "import {AccordionModule} from 'primeng/accordion'; ",
+            html: "<ui-accordion></ui-accordion>",
+            dependencies: ['npm install --save bootstrap@^4.1.3', 'npm install --save  @fortawesome/fontawesome-free@^5.5.0'],
+            modules: [{
+                    name: 'AccordionModule',
+                    description: 'Des'
+                }, {
+                    name: 'CardModule',
+                    description: 'Des'
+                }, {
+                    name: 'CarouselModule',
+                    description: 'Des'
+                }, {
+                    name: 'ChartModule',
+                    description: 'Des'
+                }, {
+                    name: 'DatatableModule',
+                    description: 'Des'
+                }, {
+                    name: 'DatepickerModule',
+                    description: 'Des'
+                }, {
+                    name: 'DropdownModule',
+                    description: 'Des'
+                }, {
+                    name: 'ModalModule',
+                    description: 'Des'
+                }, {
+                    name: 'TabModule',
+                    description: 'Des'
+                }, {
+                    name: 'TooltipModule',
+                    description: 'Des'
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Accordion';
+    }
+    DashboardComponent.prototype.ngOnInit = function () {
+    };
+    DashboardComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-dashboard',
+            template: __webpack_require__(/*! ./dashboard.component.html */ "./src/app/dashboard/dashboard.component.html"),
+            styles: [__webpack_require__(/*! ./dashboard.component.css */ "./src/app/dashboard/dashboard.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DashboardComponent);
+    return DashboardComponent;
 }());
 
 
@@ -1197,7 +2144,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  datatable works!\n</p>\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-4\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-8\">\r\n    <div  *ngIf=\"rows\">\r\n      <ui-datatable\r\n        class=\"material\"\r\n        [rows]=\"rows\"\r\n        [columns]=\"columns\"\r\n        (page)=\"onPageChange($event)\"\r\n        (sorted)=\"onSort($event)\">\r\n      </ui-datatable>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1212,6 +2159,7 @@ module.exports = "<p>\n  datatable works!\n</p>\n"
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatatableComponent", function() { return DatatableComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _shared_api_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../shared/api.service */ "./src/app/shared/api.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1222,10 +2170,76 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DatatableComponent = /** @class */ (function () {
-    function DatatableComponent() {
+    function DatatableComponent(api) {
+        this.api = api;
+        this.codes = {
+            import: "import {CarouselModule} from 'ng-uikit'",
+            component: "export class Demo implements OnInit { }",
+            html: "<ui-datatable></ui-datatable>",
+            properties: [{
+                    name: '',
+                    type: '',
+                    default: '',
+                    description: ''
+                }],
+            events: [{
+                    name: '',
+                    parameters: '',
+                    description: ''
+                }],
+            styling: [{
+                    selector: '',
+                    description: ''
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Datatable';
     }
     DatatableComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.columns = [
+            {
+                field: 'name',
+                label: 'Name',
+                sortable: true,
+                className: 'col-md-3'
+            },
+            {
+                field: 'position',
+                label: 'Position',
+                sortable: true,
+                className: 'col-md-3'
+            },
+            {
+                field: 'office',
+                label: 'Office',
+                sortable: true,
+                className: 'col-md-2'
+            },
+            {
+                field: 'extn',
+                label: 'Extn',
+                sortable: true,
+                className: 'col-md-1'
+            },
+            {
+                field: 'startDate',
+                label: 'Start Date',
+                sortable: true,
+                className: 'col-md-2'
+            }
+        ];
+        this.api.getJson('../assets/datatable.json').subscribe(function (res) {
+            _this.rows = res['data'];
+        });
+    };
+    DatatableComponent.prototype.onSort = function (e) {
+        console.log(e);
+    };
+    DatatableComponent.prototype.onPageChange = function (e) {
+        console.log(e);
     };
     DatatableComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1233,7 +2247,7 @@ var DatatableComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./datatable.component.html */ "./src/app/datatable/datatable.component.html"),
             styles: [__webpack_require__(/*! ./datatable.component.css */ "./src/app/datatable/datatable.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_shared_api_service__WEBPACK_IMPORTED_MODULE_1__["ApiService"]])
     ], DatatableComponent);
     return DatatableComponent;
 }());
@@ -1260,7 +2274,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\n     id=\"Carousel\">\n  <h1 class=\"h2\">Datepicker</h1>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-6\">\n    <pre>\n      &#x3C;ui-carousel\n      [items]=&#x22;items&#x22;\n      (afterNext)=&#x22;logEvent($event)&#x22;\n      (afterPrev)=&#x22;logEvent($event)&#x22;&#x3E;\n      &#x3C;/ui-carousel&#x3E;\n    </pre>\n  </div>\n\n  <div class=\"col-md-6\">\n    <div class=\"demo-content float-right\">\n      <ui-datepicker (selected)=\"onSelect($event)\"></ui-datepicker>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <p class=\"demo-output\">\r\n      <code class=\"pull-left\">From :  {{selectedDateFrom}}</code>\r\n    </p>\r\n    <p class=\"demo-output\">\r\n      <code class=\"pull-left\">To :  {{selectedDateTo}}</code>\r\n    </p>\r\n    <div class=\"demo-content row\">\r\n      <div class=\"col-md-6\">\r\n        <ui-datepicker (selected)=\"onSelectFrom($event)\"></ui-datepicker>\r\n      </div>\r\n      <div class=\"col-md-6\">\r\n        <ui-datepicker (selected)=\"onSelectTo($event)\"></ui-datepicker>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1287,11 +2301,39 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var DatepickerComponent = /** @class */ (function () {
     function DatepickerComponent() {
+        this.codes = {
+            import: "import {CarouselModule} from 'ng-uikit'",
+            component: "export class Demo implements OnInit { }",
+            html: "<ui-card></ui-card>",
+            properties: [{
+                    name: '',
+                    type: '',
+                    default: '',
+                    description: ''
+                }],
+            events: [{
+                    name: '',
+                    parameters: '',
+                    description: ''
+                }],
+            styling: [{
+                    selector: '',
+                    description: ''
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Datepicker';
+        this.interpolate = {
+            language: 'language interpolated'
+        };
     }
     DatepickerComponent.prototype.ngOnInit = function () {
     };
-    DatepickerComponent.prototype.onSelect = function (e) {
-        console.log(e);
+    DatepickerComponent.prototype.onSelectFrom = function (e) {
+        this.selectedDateFrom = '' + JSON.stringify(e) + '';
+    };
+    DatepickerComponent.prototype.onSelectTo = function (e) {
+        this.selectedDateTo = '' + JSON.stringify(e) + '';
     };
     DatepickerComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -1326,7 +2368,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\" id=\"Carousel\">\r\n  <h1 class=\"h2\">Dropdown</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <pre>\r\n      &#x3C;ui-carousel\r\n      [items]=&#x22;items&#x22;\r\n      (afterNext)=&#x22;logEvent($event)&#x22;\r\n      (afterPrev)=&#x22;logEvent($event)&#x22;&#x3E;\r\n      &#x3C;/ui-carousel&#x3E;\r\n    </pre>\r\n  </div>\r\n\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-dropdown\r\n        [items]=\"items\">\r\n      </ui-dropdown>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-dropdown [items]=\"items\"></ui-dropdown>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1359,6 +2401,28 @@ var DropdownComponent = /** @class */ (function () {
                 text: 'fsdf'
             }
         ];
+        this.codes = {
+            import: "import {CarouselModule} from 'ng-uikit'",
+            component: "export class Demo implements OnInit { }",
+            html: "<ui-modal></ui-modal>",
+            properties: [{
+                    name: '',
+                    type: '',
+                    default: '',
+                    description: ''
+                }],
+            events: [{
+                    name: '',
+                    parameters: '',
+                    description: ''
+                }],
+            styling: [{
+                    selector: '',
+                    description: ''
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Modal';
     }
     DropdownComponent.prototype.ngOnInit = function () {
     };
@@ -1395,7 +2459,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  modal works!\n</p>\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-modal></ui-modal>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1422,6 +2486,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var ModalComponent = /** @class */ (function () {
     function ModalComponent() {
+        this.codes = {
+            import: "import {CarouselModule} from 'ng-uikit'",
+            component: "export class Demo implements OnInit { }",
+            html: "<ui-modal></ui-modal>",
+            properties: [{
+                    name: '',
+                    type: '',
+                    default: '',
+                    description: ''
+                }],
+            events: [{
+                    name: '',
+                    parameters: '',
+                    description: ''
+                }],
+            styling: [{
+                    selector: '',
+                    description: ''
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Modal';
     }
     ModalComponent.prototype.ngOnInit = function () {
     };
@@ -1434,6 +2520,117 @@ var ModalComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [])
     ], ModalComponent);
     return ModalComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/api.service.ts":
+/*!***************************************!*\
+  !*** ./src/app/shared/api.service.ts ***!
+  \***************************************/
+/*! exports provided: ApiService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApiService", function() { return ApiService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var ApiService = /** @class */ (function () {
+    function ApiService(http) {
+        this.http = http;
+    }
+    ApiService.prototype.getJson = function (url) {
+        return this.http.get(url);
+    };
+    ApiService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], ApiService);
+    return ApiService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/shared/component/doc/doc.component.css":
+/*!********************************************************!*\
+  !*** ./src/app/shared/component/doc/doc.component.css ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/shared/component/doc/doc.component.html":
+/*!*********************************************************!*\
+  !*** ./src/app/shared/component/doc/doc.component.html ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<h5>Import</h5>\r\n<ngx-prism [language]=\"language\" [code]=\"pageData.import\"></ngx-prism>\r\n<h5>Component</h5>\r\n<ngx-prism [language]=\"language\" [code]=\"pageData.component\"></ngx-prism>\r\n<h5>Html Template</h5>\r\n<ngx-prism [language]=\"language\" [code]=\"pageData.html\"></ngx-prism>\r\n<h5>Properties</h5>\r\n<div class=\"table-responsive\">\r\n  <table class=\"table table-striped\">\r\n    <thead>\r\n    <tr>\r\n      <th>Name</th>\r\n      <th>Type</th>\r\n      <th>Default</th>\r\n      <th>Description</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n    <tr *ngFor=\"let property of pageData.properties\">\r\n      <td>{{property.name}}</td>\r\n      <td>{{property.type}}</td>\r\n      <td>{{property.default}}</td>\r\n      <td>{{property.description}}</td>\r\n    </tr>\r\n    </tbody>\r\n  </table>\r\n</div>\r\n<h5>Events</h5>\r\n<div class=\"table-responsive\">\r\n  <table class=\"table table-striped\">\r\n    <thead>\r\n    <tr>\r\n      <th>Name</th>\r\n      <th>Parameters</th>\r\n      <th>Description</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n    <tr *ngFor=\"let property of pageData.events\">\r\n      <td>{{property.name}}</td>\r\n      <td>{{property.parameters}}</td>\r\n      <td>{{property.description}}</td>\r\n    </tr>\r\n    </tbody>\r\n  </table>\r\n</div>\r\n<h5>Styling</h5>\r\n<div class=\"table-responsive\">\r\n  <table class=\"table table-striped\">\r\n    <thead>\r\n    <tr>\r\n      <th>Selector</th>\r\n      <th>Description</th>\r\n    </tr>\r\n    </thead>\r\n    <tbody>\r\n    <tr *ngFor=\"let property of pageData.styling\">\r\n      <td>{{property.selector}}</td>\r\n      <td>{{property.description}}</td>\r\n    </tr>\r\n    </tbody>\r\n  </table>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/shared/component/doc/doc.component.ts":
+/*!*******************************************************!*\
+  !*** ./src/app/shared/component/doc/doc.component.ts ***!
+  \*******************************************************/
+/*! exports provided: DocComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DocComponent", function() { return DocComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DocComponent = /** @class */ (function () {
+    function DocComponent() {
+        this.language = 'html';
+    }
+    DocComponent.prototype.ngOnInit = function () {
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], DocComponent.prototype, "pageData", void 0);
+    DocComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-doc',
+            template: __webpack_require__(/*! ./doc.component.html */ "./src/app/shared/component/doc/doc.component.html"),
+            styles: [__webpack_require__(/*! ./doc.component.css */ "./src/app/shared/component/doc/doc.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], DocComponent);
+    return DocComponent;
 }());
 
 
@@ -1458,7 +2655,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  tab works!\n</p>\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-tab></ui-tab>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1485,6 +2682,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var TabComponent = /** @class */ (function () {
     function TabComponent() {
+        this.codes = {
+            import: "import {CarouselModule} from 'ng-uikit'",
+            component: "export class Demo implements OnInit { }",
+            html: "<ui-tab></ui-tab>",
+            properties: [{
+                    name: '',
+                    type: '',
+                    default: '',
+                    description: ''
+                }],
+            events: [{
+                    name: '',
+                    parameters: '',
+                    description: ''
+                }],
+            styling: [{
+                    selector: '',
+                    description: ''
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Tab';
     }
     TabComponent.prototype.ngOnInit = function () {
     };
@@ -1521,7 +2740,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  tooltip works!\n</p>\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-tooltip></ui-tooltip>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1548,6 +2767,28 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var TooltipComponent = /** @class */ (function () {
     function TooltipComponent() {
+        this.codes = {
+            import: "import {CarouselModule} from 'ng-uikit'",
+            component: "export class Demo implements OnInit { }",
+            html: "<ui-tooltip></ui-tooltip>",
+            properties: [{
+                    name: '',
+                    type: '',
+                    default: '',
+                    description: ''
+                }],
+            events: [{
+                    name: '',
+                    parameters: '',
+                    description: ''
+                }],
+            styling: [{
+                    selector: '',
+                    description: ''
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Tooltip';
     }
     TooltipComponent.prototype.ngOnInit = function () {
     };
