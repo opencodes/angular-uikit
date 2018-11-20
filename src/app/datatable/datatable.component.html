@@ -3,12 +3,18 @@
   <h1 class="h2">{{title}}</h1>
 </div>
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-4">
     <app-doc [pageData]="codes"></app-doc>
   </div>
-  <div class="col-md-6">
-    <div class="demo-content float-right">
-      <ui-datatable></ui-datatable>
+  <div class="col-md-8">
+    <div  *ngIf="rows">
+      <ui-datatable
+        class="material"
+        [rows]="rows"
+        [columns]="columns"
+        (page)="onPageChange($event)"
+        (sorted)="onSort($event)">
+      </ui-datatable>
     </div>
   </div>
 </div>

@@ -2,6 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {PrismModule} from '@ngx-prism/core';
+import {HttpClientModule} from "@angular/common/http";
 
 import {AppComponent} from './app.component';
 import {NgUikitModule} from '../../projects/ng-uikit/src/lib/ng-uikit.module';
@@ -26,7 +27,8 @@ import {DatatableModule} from '../../projects/ng-uikit/src/lib/datatable/datatab
 import {ModalModule} from '../../projects/ng-uikit/src/lib/modal/modal.module';
 import {TabModule} from '../../projects/ng-uikit/src/lib/tab/tab.module';
 import {TooltipModule} from '../../projects/ng-uikit/src/lib/tooltip/tooltip.module';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {ApiService} from "./shared/api.service";
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     NgUikitModule,
     CarouselModule,
     AccordionModule,
@@ -74,7 +77,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
       {path: 'Tooltip', component: TooltipComponent},
     ], {useHash: true})
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

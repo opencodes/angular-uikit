@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import * as _ from 'lodash';
+import {Column} from "./datatable.interface";
 
 @Component({
   selector: 'ui-datatable',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatatableComponent implements OnInit {
 
-  constructor() { }
+  @Input() rows;
+  @Input() columns: Column;
+  @Output() page = new EventEmitter();
+  @Output() sorted = new EventEmitter();
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  getColumnClass(col: Column) {
+    let className = " ui-dt-cell ";
+    if (col.className) {
+      className += col.className + ' ';
+    }
+    if (col.sortable){
+      className += ' sortable'
+    }
+    return className;
+  }
 }

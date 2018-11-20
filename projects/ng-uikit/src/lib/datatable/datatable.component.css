@@ -1,0 +1,21 @@
+.ui-dt-table{
+
+}
+.ui-dt-thead{
+  border-bottom: 1px solid #999999;
+  padding: 5px;
+}
+.ui-dt-thead .ui-dt-cell{
+  font-weight: 500;
+}
+.ui-dt-tbody{
+
+}
+.ui-dt-row{
+  border-bottom: 1px solid #999999;
+  padding: 5px;
+}
+.ui-dt-cell{
+  -ms-word-break: break-word;
+  word-break: break-word;
+}
