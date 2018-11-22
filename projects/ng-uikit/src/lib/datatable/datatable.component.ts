@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import * as _ from 'lodash';
-import {Column} from "./datatable.interface";
+import {Column, Page} from './datatable.interface';
+import {DatatableService} from './service/datatable.service';
 
 @Component({
   selector: 'ui-datatable',
@@ -11,23 +11,33 @@ export class DatatableComponent implements OnInit {
 
   @Input() rows;
   @Input() columns: Column;
-  @Output() page = new EventEmitter();
+  @Output() pageChange = new EventEmitter();
   @Output() sorted = new EventEmitter();
+  size = 6;
+  page: Page;
 
-  constructor() {
+  constructor(private _dts: DatatableService) {
   }
 
   ngOnInit() {
+    this.page = this._dts.getPageData(this.rows, this.size, 1);
   }
 
   getColumnClass(col: Column) {
-    let className = " ui-dt-cell ";
+    let className = ' ui-dt-cell ';
     if (col.className) {
       className += col.className + ' ';
     }
-    if (col.sortable){
-      className += ' sortable'
+    if (col.sortable) {
+      className += ' sortable';
     }
     return className;
+  }
+
+
+  onPageChange(e) {
+
+    this.page = this._dts.getPageData(this.rows, this.size, e.pageNum);
+    console.log(this.page);
   }
 }
