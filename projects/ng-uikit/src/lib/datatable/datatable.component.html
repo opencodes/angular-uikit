@@ -1,15 +1,20 @@
 <div class="ui-dt-table">
   <div class="ui-dt-thead row">
-      <div  *ngFor="let col of columns" [ngClass]="getColumnClass(col)">
-        {{col.label}}
-        <i class="fas fa-sort-amount-up"></i>
-      </div>
+    <div *ngFor="let col of columns" [ngClass]="getColumnClass(col)">
+      {{col.label}}
+      <i class="fas fa-sort-amount-up"></i>
+    </div>
   </div>
   <div class="ui-dt-tbody">
-    <div *ngFor="let row of rows;let i=index;" class="row ui-dt-row">
+    <div *ngFor="let row of page.rows;let i=index;" class="row ui-dt-row">
       <div [attr.class]="col.className +' ui-dt-cell'" *ngFor="let col of columns;let k=index;">
-        {{row[k]}}
+        {{i}} {{row[k]}}
       </div>
     </div>
   </div>
 </div>
+<ui-pagination
+  [size]="size"
+  [totalCount]="rows.length"
+  (pageChange)="onPageChange($event)">
+</ui-pagination>
