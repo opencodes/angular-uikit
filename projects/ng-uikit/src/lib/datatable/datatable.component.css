@@ -1,21 +1,29 @@
-.ui-dt-table{
+.ui-dt-table {
 
 }
-.ui-dt-thead{
+
+.ui-dt-thead {
   border-bottom: 1px solid #999999;
-  padding: 5px;
 }
-.ui-dt-thead .ui-dt-cell{
+
+.ui-dt-thead .ui-dt-cell {
   font-weight: 500;
 }
-.ui-dt-tbody{
+
+.ui-dt-tbody {
 
 }
-.ui-dt-row{
+
+.ui-dt-row {
   border-bottom: 1px solid #999999;
-  padding: 5px;
 }
-.ui-dt-cell{
+
+.ui-dt-cell {
   -ms-word-break: break-word;
   word-break: break-word;
+  border-left: 1px solid #ddd;
+  padding: 5px;
+}
+.ui-dt-row .ui-dt-cell:last-child {
+  border-right: 1px solid #ddd;
 }
