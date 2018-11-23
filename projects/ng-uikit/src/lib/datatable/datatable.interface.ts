@@ -4,3 +4,7 @@ export interface Column {
   sortable: string;
   className: string;
 }
+
+export interface Page {
+  
+}

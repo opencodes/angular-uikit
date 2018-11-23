@@ -37,7 +37,7 @@ export class DatatableComponent implements OnInit {
 
   onPageChange(e) {
 
-    this.page = this._dts.getPageData(this.rows, this.size, e.pageNum);
+    this.page = this._dts.getPageData(this.rows, this.size, 1);
     console.log(this.page);
   }
 }
