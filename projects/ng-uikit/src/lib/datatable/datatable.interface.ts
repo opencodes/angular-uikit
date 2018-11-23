@@ -6,5 +6,5 @@ export interface Column {
 }
 
 export interface Page {
-  
+
 }
