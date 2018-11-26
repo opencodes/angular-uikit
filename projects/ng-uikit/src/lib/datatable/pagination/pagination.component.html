@@ -1,3 +1,18 @@
-<p>
-  pagination works!
-</p>
+<div class="m-3">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      <ng-container *ngFor="let page of pages; index as i; first as isFirst; last as isLast;">
+        <li class="page-item " *ngIf="isFirst" [ngClass]="{'disabled':pageNum === 1}" (click)="onPageChange(i+1)">
+          <a class="page-link" tabindex="-1">Previous</a>
+        </li>
+        <li class="page-item" (click)="onPageChange(i+1)">
+          <a class="page-link"  [ngClass]="{'active disabled':pageNum===i+1}">{{i+1}}</a>
+        </li>
+        <li class="page-item" *ngIf="isLast" [ngClass]="{'disabled':pageNum===pages.length}" (click)="onPageChange(i+1)">
+          <a class="page-link"> Next</a>
+        </li>
+      </ng-container>
+    </ul>
+  </nav>
+</div>
+
