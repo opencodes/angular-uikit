@@ -8,7 +8,12 @@
   </div>
   <div class="col-md-6">
     <div class="demo-content float-right">
-      <ui-accordion></ui-accordion>
+      <ui-accordion>
+        <ui-accordion-panel [header]="item.headerText" [isOpen]="item.isOpen" *ngFor="let item of items">
+          <h1>{{item.bodyText}}</h1>
+        </ui-accordion-panel>
+      </ui-accordion>
+
     </div>
   </div>
 </div>

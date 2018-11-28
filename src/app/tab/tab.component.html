@@ -8,7 +8,11 @@
   </div>
   <div class="col-md-6">
     <div class="demo-content float-right">
-      <ui-tab></ui-tab>
+      <ui-tab>
+        <ui-tab-panel *ngFor="let item of items" [header]="item.headerText" [isOpen]="item.isOpen">
+          {{item.bodyText}}
+        </ui-tab-panel>
+      </ui-tab>
     </div>
   </div>
 </div>

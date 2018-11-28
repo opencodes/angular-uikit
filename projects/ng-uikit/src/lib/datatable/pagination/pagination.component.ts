@@ -10,9 +10,10 @@ export class PaginationComponent implements OnInit {
   @Input() totalCount: number;
   @Input() size = 10;
   @Output() pageChange = new EventEmitter();
+
   private pageCount: number;
   pages: any[];
-  private pageNum: number=1;
+  pageNum: number=1;
 
 
   constructor(private _pgs: PagingService) {

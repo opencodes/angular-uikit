@@ -1,5 +1,80 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.css":
+/*!*******************************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.css ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.html":
+/*!********************************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.html ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"card\">\n  <div class=\"card-header\" [attr.id]=\"'heading'+index\">\n    <h5 class=\"mb-0\">\n      <button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" [attr.data-target]=\"'#collapse'+index\"\n              [attr.aria-expanded]=\"isOpen\" [attr.aria-controls]=\"'collapse'+index\" (click)=\"toggle(index)\">\n        {{header}}\n      </button>\n    </h5>\n  </div>\n  <div [attr.id]=\"'collapse'+index\" class=\"collapse \" [ngClass]=\"{'show':isOpen}\"\n       [attr.aria-labelledby]=\"'heading'+index\" data-parent=\"#accordionExample\">\n    <div class=\"card-body\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.ts":
+/*!******************************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.ts ***!
+  \******************************************************************************************/
+/*! exports provided: AccordionPanelComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionPanelComponent", function() { return AccordionPanelComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AccordionPanelComponent = /** @class */ (function () {
+    function AccordionPanelComponent() {
+    }
+    AccordionPanelComponent.prototype.ngOnInit = function () {
+        this.index = Math.ceil(1000 * Math.random());
+    };
+    AccordionPanelComponent.prototype.toggle = function (i) {
+        this.isOpen = !this.isOpen;
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AccordionPanelComponent.prototype, "header", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AccordionPanelComponent.prototype, "isOpen", void 0);
+    AccordionPanelComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ui-accordion-panel',
+            template: __webpack_require__(/*! ./accordion-panel.component.html */ "./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.html"),
+            styles: [__webpack_require__(/*! ./accordion-panel.component.css */ "./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AccordionPanelComponent);
+    return AccordionPanelComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./projects/ng-uikit/src/lib/accordion/accordion.component.css":
 /*!*********************************************************************!*\
   !*** ./projects/ng-uikit/src/lib/accordion/accordion.component.css ***!
@@ -18,7 +93,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"accordion\" id=\"accordionExample\">\r\n  <div class=\"card\" *ngFor=\"let item of items;let i=index;\">\r\n    <div class=\"card-header\" [attr.id]=\"'heading'+i\">\r\n      <h5 class=\"mb-0\">\r\n        <button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" [attr.data-target]=\"'#collapse'+i\"\r\n                [attr.aria-expanded]=\"item.isOpen\" [attr.aria-controls]=\"'collapse'+i\" (click)=\"toggle(i)\">\r\n          Collapsible Group Item #{{i}}\r\n        </button>\r\n      </h5>\r\n    </div>\r\n\r\n    <div [attr.id]=\"'collapse'+i\" class=\"collapse \" [ngClass]=\"{'show':item.isOpen}\"\r\n         [attr.aria-labelledby]=\"'heading'+i\" data-parent=\"#accordionExample\">\r\n      <div class=\"card-body\">\r\n        {{item.bodyText}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"accordion\" id=\"accordionExample\">\r\n  <ng-content></ng-content>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -45,27 +120,8 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var AccordionComponent = /** @class */ (function () {
     function AccordionComponent() {
-        this.items = [{
-                headerText: 'Header 1',
-                bodyText: 'Body Text 1',
-                isOpen: true
-            }, {
-                headerText: 'Header 1',
-                bodyText: 'Body Text 2',
-                isOpen: false
-            }, {
-                headerText: 'Header 1',
-                bodyText: 'Body Text 3',
-                isOpen: false
-            }];
     }
     AccordionComponent.prototype.ngOnInit = function () {
-    };
-    AccordionComponent.prototype.toggle = function (i) {
-        var _this = this;
-        this.items.forEach(function (item, index) {
-            _this.items[index].isOpen = (index === i);
-        });
     };
     AccordionComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -95,12 +151,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _accordion_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./accordion.component */ "./projects/ng-uikit/src/lib/accordion/accordion.component.ts");
+/* harmony import */ var _accordion_panel_accordion_panel_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./accordion-panel/accordion-panel.component */ "./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -112,8 +170,8 @@ var AccordionModule = /** @class */ (function () {
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
             ],
-            declarations: [_accordion_component__WEBPACK_IMPORTED_MODULE_2__["AccordionComponent"]],
-            exports: [_accordion_component__WEBPACK_IMPORTED_MODULE_2__["AccordionComponent"]]
+            declarations: [_accordion_component__WEBPACK_IMPORTED_MODULE_2__["AccordionComponent"], _accordion_panel_accordion_panel_component__WEBPACK_IMPORTED_MODULE_3__["AccordionPanelComponent"]],
+            exports: [_accordion_component__WEBPACK_IMPORTED_MODULE_2__["AccordionComponent"], _accordion_panel_accordion_panel_component__WEBPACK_IMPORTED_MODULE_3__["AccordionPanelComponent"]]
         })
     ], AccordionModule);
     return AccordionModule;
@@ -391,7 +449,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<p>\r\n  chart works!\r\n</p>\r\n"
+module.exports = "<div style=\"position:relative\" [style.width]=\"responsive && !width ? null : width\" [style.height]=\"responsive && !height ? null : height\">\r\n  <canvas [attr.width]=\"responsive && !width ? null : width\" [attr.height]=\"responsive && !height ? null : height\" (click)=\"onCanvasClick($event)\"></canvas>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -417,17 +475,122 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 };
 
 var ChartComponent = /** @class */ (function () {
-    function ChartComponent() {
+    function ChartComponent(el) {
+        this.el = el;
+        this.width = '400px';
+        this.height = '400px';
+        this.clickChart = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.responsive = true;
     }
     ChartComponent.prototype.ngOnInit = function () {
     };
+    ChartComponent.prototype.ngAfterViewInit = function () {
+        var ctx = this.el.nativeElement.children[0].children[0].getContext('2d');
+        var _that = this;
+        Chart.plugins.register({
+            afterDatasetsDraw: function (chartInstance, easing) {
+                // To only draw at the end of animation, check for easing === 1
+                var ctx = chartInstance.chart.ctx;
+                chartInstance.data.datasets.forEach(function (dataset, i) {
+                    var meta = chartInstance.getDatasetMeta(i);
+                    if (!meta.hidden) {
+                        meta.data.forEach(function (element, index) {
+                            // Draw the text in black, with the specified font
+                            ctx.fillStyle = 'rgb(0, 0, 0)';
+                            var fontSize = 16;
+                            var fontStyle = 'normal';
+                            var fontFamily = 'Helvetica Neue';
+                            ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+                            // Just naively convert to string for now
+                            var dataString = dataset.data[index].toString();
+                            // Make sure alignment settings are correct
+                            ctx.textAlign = 'center';
+                            ctx.textBaseline = 'middle';
+                            var padding = 5;
+                            var position = element.tooltipPosition();
+                            ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                        });
+                    }
+                });
+            }
+        });
+        this.chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'bar',
+            // The data for our dataset
+            data: this.data,
+            maintainAspectRatio: false,
+            responsive: true,
+            // Configuration options go here
+            options: {
+                onClick: function (e) {
+                    var activePoints = _that.chart.getElementsAtEvent(e);
+                    var index = activePoints[0]._index;
+                    _that.clickChart.emit({ y: this.data.datasets[0].data[index], x: this.data.labels[index] });
+                },
+                title: {
+                    display: true,
+                    text: 'My Title',
+                    fontSize: 16
+                },
+                legend: {
+                    enabled: false,
+                },
+                scales: {
+                    yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                },
+                layout: {
+                    padding: {
+                        left: 50,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    }
+                }
+            },
+            onClick: function (e) {
+                var activePoints = _that.chart.getElementsAtEvent(e);
+                var selectedIndex = activePoints[0]._index;
+                console.log(this.data.datasets[0].data[selectedIndex]);
+            }
+        });
+    };
+    ChartComponent.prototype.onCanvasClick = function (e) {
+        // if(this.chart) {
+        //   let element = this.chart.getElementAtEvent(event);
+        //   let dataset = this.chart.getDatasetAtEvent(event);
+        //   if(element && element[0] && dataset) {
+        //     this.clickChart.emit({originalEvent: event, element: element[0], dataset: dataset});
+        //   }
+        // }
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ChartComponent.prototype, "data", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ChartComponent.prototype, "width", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], ChartComponent.prototype, "height", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], ChartComponent.prototype, "clickChart", void 0);
     ChartComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'ui-chart',
             template: __webpack_require__(/*! ./chart.component.html */ "./projects/ng-uikit/src/lib/chart/chart.component.html"),
             styles: [__webpack_require__(/*! ./chart.component.css */ "./projects/ng-uikit/src/lib/chart/chart.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ElementRef"]])
     ], ChartComponent);
     return ChartComponent;
 }());
@@ -484,7 +647,7 @@ var ChartModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".ui-dt-table{\r\n\r\n}\r\n.ui-dt-thead{\r\n  border-bottom: 1px solid #999999;\r\n  padding: 5px;\r\n}\r\n.ui-dt-thead .ui-dt-cell{\r\n  font-weight: 500;\r\n}\r\n.ui-dt-tbody{\r\n\r\n}\r\n.ui-dt-row{\r\n  border-bottom: 1px solid #999999;\r\n  padding: 5px;\r\n}\r\n.ui-dt-cell{\r\n  -ms-word-break: break-word;\r\n  word-break: break-word;\r\n}\r\n"
+module.exports = ".ui-dt-table {\r\n\r\n}\r\n\r\n.ui-dt-thead {\r\n  border-bottom: 1px solid #999999;\r\n}\r\n\r\n.ui-dt-thead .ui-dt-cell {\r\n  font-weight: 500;\r\n}\r\n\r\n.ui-dt-tbody {\r\n\r\n}\r\n\r\n.ui-dt-row {\r\n  border-bottom: 1px solid #999999;\r\n}\r\n\r\n.ui-dt-cell {\r\n  -ms-word-break: break-word;\r\n  word-break: break-word;\r\n  border-left: 1px solid #ddd;\r\n  padding: 5px;\r\n}\r\n\r\n.ui-dt-row .ui-dt-cell:last-child {\r\n  border-right: 1px solid #ddd;\r\n}\r\n"
 
 /***/ }),
 
@@ -495,7 +658,7 @@ module.exports = ".ui-dt-table{\r\n\r\n}\r\n.ui-dt-thead{\r\n  border-bottom: 1p
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui-dt-table\">\r\n  <div class=\"ui-dt-thead row\">\r\n      <div  *ngFor=\"let col of columns\" [ngClass]=\"getColumnClass(col)\">\r\n        {{col.label}}\r\n        <i class=\"fas fa-sort-amount-up\"></i>\r\n      </div>\r\n  </div>\r\n  <div class=\"ui-dt-tbody\">\r\n    <div *ngFor=\"let row of rows;let i=index;\" class=\"row ui-dt-row\">\r\n      <div [attr.class]=\"col.className +' ui-dt-cell'\" *ngFor=\"let col of columns;let k=index;\">\r\n        {{row[k]}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"ui-dt-table\">\r\n  <div class=\"ui-dt-thead row\">\r\n    <div *ngFor=\"let col of columns\" [ngClass]=\"getColumnClass(col)\">\r\n      {{col.label}}\r\n      <i class=\"fas fa-sort-amount-up\"></i>\r\n    </div>\r\n  </div>\r\n  <div class=\"ui-dt-tbody\">\r\n    <div *ngFor=\"let row of page.rows;let i=index;\" class=\"row ui-dt-row\">\r\n      <div [attr.class]=\"col.className +' ui-dt-cell'\" *ngFor=\"let col of columns;let k=index;\">\r\n        {{i}} {{row[k]}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<ui-pagination\r\n  [size]=\"size\"\r\n  [totalCount]=\"rows.length\"\r\n  (pageChange)=\"onPageChange($event)\">\r\n</ui-pagination>\r\n"
 
 /***/ }),
 
@@ -510,6 +673,7 @@ module.exports = "<div class=\"ui-dt-table\">\r\n  <div class=\"ui-dt-thead row\
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatatableComponent", function() { return DatatableComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_datatable_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./service/datatable.service */ "./projects/ng-uikit/src/lib/datatable/service/datatable.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -520,15 +684,19 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DatatableComponent = /** @class */ (function () {
-    function DatatableComponent() {
-        this.page = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+    function DatatableComponent(_dts) {
+        this._dts = _dts;
+        this.pageChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.sorted = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.size = 6;
     }
     DatatableComponent.prototype.ngOnInit = function () {
+        this.page = this._dts.getPageData(this.rows, this.size, 1);
     };
     DatatableComponent.prototype.getColumnClass = function (col) {
-        var className = " ui-dt-cell ";
+        var className = ' ui-dt-cell ';
         if (col.className) {
             className += col.className + ' ';
         }
@@ -536,6 +704,9 @@ var DatatableComponent = /** @class */ (function () {
             className += ' sortable';
         }
         return className;
+    };
+    DatatableComponent.prototype.onPageChange = function (e) {
+        this.page = this._dts.getPageData(this.rows, this.size, e.pageNum);
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -548,7 +719,7 @@ var DatatableComponent = /** @class */ (function () {
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
-    ], DatatableComponent.prototype, "page", void 0);
+    ], DatatableComponent.prototype, "pageChange", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
         __metadata("design:type", Object)
@@ -559,7 +730,7 @@ var DatatableComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./datatable.component.html */ "./projects/ng-uikit/src/lib/datatable/datatable.component.html"),
             styles: [__webpack_require__(/*! ./datatable.component.css */ "./projects/ng-uikit/src/lib/datatable/datatable.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_service_datatable_service__WEBPACK_IMPORTED_MODULE_1__["DatatableService"]])
     ], DatatableComponent);
     return DatatableComponent;
 }());
@@ -581,12 +752,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _datatable_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./datatable.component */ "./projects/ng-uikit/src/lib/datatable/datatable.component.ts");
+/* harmony import */ var _pagination_pagination_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pagination/pagination.component */ "./projects/ng-uikit/src/lib/datatable/pagination/pagination.component.ts");
+/* harmony import */ var _service_datatable_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./service/datatable.service */ "./projects/ng-uikit/src/lib/datatable/service/datatable.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -598,11 +773,211 @@ var DatatableModule = /** @class */ (function () {
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
             ],
-            declarations: [_datatable_component__WEBPACK_IMPORTED_MODULE_2__["DatatableComponent"]],
-            exports: [_datatable_component__WEBPACK_IMPORTED_MODULE_2__["DatatableComponent"]]
+            providers: [_service_datatable_service__WEBPACK_IMPORTED_MODULE_4__["DatatableService"]],
+            declarations: [_datatable_component__WEBPACK_IMPORTED_MODULE_2__["DatatableComponent"], _pagination_pagination_component__WEBPACK_IMPORTED_MODULE_3__["PaginationComponent"]],
+            exports: [_datatable_component__WEBPACK_IMPORTED_MODULE_2__["DatatableComponent"], _pagination_pagination_component__WEBPACK_IMPORTED_MODULE_3__["PaginationComponent"]]
         })
     ], DatatableModule);
     return DatatableModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/datatable/pagination/pagination.component.css":
+/*!*********************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/datatable/pagination/pagination.component.css ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".page-link:not([href]):not([tabindex]){\r\n  position: relative;\r\n  display: block;\r\n  padding: .5rem .75rem;\r\n  margin-left: -1px;\r\n  line-height: 1.25;\r\n  color: #007bff;\r\n  background-color: #fff;\r\n  border: 1px solid #dee2e6;\r\n}\r\n\r\n.page-link.active:not([href]):not([tabindex]){\r\n  position: relative;\r\n  display: block;\r\n  padding: .5rem .75rem;\r\n  margin-left: -1px;\r\n  line-height: 1.25;\r\n  color: #6c757d;\r\n  background-color: #fff;\r\n  border: 1px solid #dee2e6;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/datatable/pagination/pagination.component.html":
+/*!**********************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/datatable/pagination/pagination.component.html ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"m-3\">\r\n  <nav aria-label=\"Page navigation example\">\r\n    <ul class=\"pagination justify-content-center\">\r\n      <ng-container *ngFor=\"let page of pages; index as i; first as isFirst; last as isLast;\">\r\n        <li class=\"page-item \" *ngIf=\"isFirst\" [ngClass]=\"{'disabled':pageNum === 1}\" (click)=\"onPageChange(i+1)\">\r\n          <a class=\"page-link\" tabindex=\"-1\">Previous</a>\r\n        </li>\r\n        <li class=\"page-item\" (click)=\"onPageChange(i+1)\">\r\n          <a class=\"page-link\"  [ngClass]=\"{'active disabled':pageNum===i+1}\">{{i+1}}</a>\r\n        </li>\r\n        <li class=\"page-item\" *ngIf=\"isLast\" [ngClass]=\"{'disabled':pageNum===pages.length}\" (click)=\"onPageChange(i+1)\">\r\n          <a class=\"page-link\"> Next</a>\r\n        </li>\r\n      </ng-container>\r\n    </ul>\r\n  </nav>\r\n</div>\r\n\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/datatable/pagination/pagination.component.ts":
+/*!********************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/datatable/pagination/pagination.component.ts ***!
+  \********************************************************************************/
+/*! exports provided: PaginationComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PaginationComponent", function() { return PaginationComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _service_paging_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../service/paging.service */ "./projects/ng-uikit/src/lib/datatable/service/paging.service.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var PaginationComponent = /** @class */ (function () {
+    function PaginationComponent(_pgs) {
+        this._pgs = _pgs;
+        this.size = 10;
+        this.pageChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.pageNum = 1;
+    }
+    PaginationComponent.prototype.ngOnInit = function () {
+        this._pgs.size = this.size;
+        this._pgs.totalCount = this.totalCount;
+        this.pageCount = this._pgs.getListOfPage(this.totalCount);
+        this.pages = Array(this.pageCount || 0);
+        console.log(this.pages);
+    };
+    PaginationComponent.prototype.onPageChange = function (e) {
+        console.log(e);
+        this.pageNum = e;
+        this.pageChange.emit({
+            pageNum: e
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Number)
+    ], PaginationComponent.prototype, "totalCount", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], PaginationComponent.prototype, "size", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], PaginationComponent.prototype, "pageChange", void 0);
+    PaginationComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ui-pagination',
+            template: __webpack_require__(/*! ./pagination.component.html */ "./projects/ng-uikit/src/lib/datatable/pagination/pagination.component.html"),
+            styles: [__webpack_require__(/*! ./pagination.component.css */ "./projects/ng-uikit/src/lib/datatable/pagination/pagination.component.css")]
+        }),
+        __metadata("design:paramtypes", [_service_paging_service__WEBPACK_IMPORTED_MODULE_1__["PagingService"]])
+    ], PaginationComponent);
+    return PaginationComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/datatable/service/datatable.service.ts":
+/*!**************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/datatable/service/datatable.service.ts ***!
+  \**************************************************************************/
+/*! exports provided: DatatableService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DatatableService", function() { return DatatableService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var DatatableService = /** @class */ (function () {
+    function DatatableService() {
+    }
+    DatatableService.prototype.getPageData = function (rows, size, pageNum) {
+        var start = (pageNum - 1) * size;
+        var last = (start + size) > rows.length ? rows.length : start + size;
+        return {
+            startIndex: start,
+            rows: rows.slice(start, last),
+            lastIndex: last
+        };
+    };
+    DatatableService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], DatatableService);
+    return DatatableService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/datatable/service/paging.service.ts":
+/*!***********************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/datatable/service/paging.service.ts ***!
+  \***********************************************************************/
+/*! exports provided: PagingService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PagingService", function() { return PagingService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PagingService = /** @class */ (function () {
+    function PagingService() {
+    }
+    Object.defineProperty(PagingService.prototype, "size", {
+        get: function () {
+            return this._size;
+        },
+        set: function (value) {
+            this._size = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(PagingService.prototype, "totalCount", {
+        get: function () {
+            return this._totalCount;
+        },
+        set: function (value) {
+            this._totalCount = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
+    PagingService.prototype.getListOfPage = function (totalCount) {
+        return Math.ceil(totalCount / this._size);
+    };
+    PagingService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [])
+    ], PagingService);
+    return PagingService;
 }());
 
 
@@ -1241,6 +1616,83 @@ var NgUikitModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./projects/ng-uikit/src/lib/tab/tab-panel/tab-panel.component.css":
+/*!*************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/tab/tab-panel/tab-panel.component.css ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".tab-pane {\r\n  display: none;\r\n}\r\n.tab-pane.active{\r\n  display: block;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/tab/tab-panel/tab-panel.component.html":
+/*!**************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/tab/tab-panel/tab-panel.component.html ***!
+  \**************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"tab-pane fade \" [attr.id]=\"'tab'+index\" [ngClass]=\"{'active show':isOpen}\" role=\"tabpanel\"\n     aria-labelledby=\"home-tab\">\n  <ng-content></ng-content>\n</div>\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/tab/tab-panel/tab-panel.component.ts":
+/*!************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/tab/tab-panel/tab-panel.component.ts ***!
+  \************************************************************************/
+/*! exports provided: TabPanelComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabPanelComponent", function() { return TabPanelComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var TabPanelComponent = /** @class */ (function () {
+    function TabPanelComponent() {
+    }
+    TabPanelComponent.prototype.ngOnChanges = function () {
+        if (this.isOpen) {
+            console.log(this.isOpen);
+        }
+    };
+    TabPanelComponent.prototype.ngOnInit = function () {
+        this.index = Math.ceil(1000 * Math.random());
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TabPanelComponent.prototype, "header", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], TabPanelComponent.prototype, "isOpen", void 0);
+    TabPanelComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ui-tab-panel',
+            template: __webpack_require__(/*! ./tab-panel.component.html */ "./projects/ng-uikit/src/lib/tab/tab-panel/tab-panel.component.html"),
+            styles: [__webpack_require__(/*! ./tab-panel.component.css */ "./projects/ng-uikit/src/lib/tab/tab-panel/tab-panel.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], TabPanelComponent);
+    return TabPanelComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./projects/ng-uikit/src/lib/tab/tab.component.css":
 /*!*********************************************************!*\
   !*** ./projects/ng-uikit/src/lib/tab/tab.component.css ***!
@@ -1259,7 +1711,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\r\n  <li class=\"nav-item\" *ngFor=\"let item of items;let i=index;\">\r\n    <a class=\"nav-link \"\r\n       [attr.id]=\"'tab'+i\"\r\n       data-toggle=\"tab\"\r\n       (click)=\"toggle(i)\"\r\n       role=\"tab\" aria-controls=\"home\"\r\n       [attr.aria-selected]=\"item.isOpen\"\r\n       [ngClass]=\"{'active':item.isOpen}\">\r\n       {{item.headerText}}\r\n    </a>\r\n  </li>\r\n</ul>\r\n<div class=\"tab-content\" id=\"myTabContent\">\r\n  <div class=\"tab-pane fade \"\r\n       [attr.id]=\"'tab'+i\"\r\n       [ngClass]=\"{'active show':item.isOpen}\"\r\n       role=\"tabpanel\"\r\n       aria-labelledby=\"home-tab\"\r\n       *ngFor=\"let item of items;let i=index;\">\r\n       {{item.bodyText}}\r\n  </div>\r\n</div>\r\n"
+module.exports = "<ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\r\n  <li class=\"nav-item\" *ngFor=\"let item of tabs;index as i\">\r\n    <a class=\"nav-link \"\r\n       [attr.id]=\"'tab'+item.index\"\r\n       data-toggle=\"tab\"\r\n       (click)=\"toggle(item.index)\"\r\n       role=\"tab\" aria-controls=\"home\"\r\n       [attr.aria-selected]=\"item.isOpen\"\r\n       [ngClass]=\"{'active':item.isOpen}\">\r\n      {{item.headerText}}\r\n    </a>\r\n  </li>\r\n</ul>\r\n<div class=\"tab-content\" id=\"myTabContent\">\r\n  <ng-content></ng-content>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1274,6 +1726,7 @@ module.exports = "<ul class=\"nav nav-tabs\" id=\"myTab\" role=\"tablist\">\r\n 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabComponent", function() { return TabComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _tab_panel_tab_panel_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tab-panel/tab-panel.component */ "./projects/ng-uikit/src/lib/tab/tab-panel/tab-panel.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1284,11 +1737,30 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var TabComponent = /** @class */ (function () {
     function TabComponent() {
     }
     TabComponent.prototype.ngOnInit = function () {
     };
+    TabComponent.prototype.toggle = function (i) {
+        this.tabPanels.forEach(function (tab) {
+            tab.isOpen = (tab.index === i);
+        });
+    };
+    TabComponent.prototype.ngAfterContentInit = function () {
+        this.tabs = this.tabPanels.map(function (tab) {
+            return {
+                headerText: tab.header,
+                index: tab.index,
+                isOpen: !!tab
+            };
+        });
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChildren"])(_tab_panel_tab_panel_component__WEBPACK_IMPORTED_MODULE_1__["TabPanelComponent"]),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+    ], TabComponent.prototype, "tabPanels", void 0);
     TabComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'ui-tab',
@@ -1317,12 +1789,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _tab_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tab.component */ "./projects/ng-uikit/src/lib/tab/tab.component.ts");
+/* harmony import */ var _tab_panel_tab_panel_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./tab-panel/tab-panel.component */ "./projects/ng-uikit/src/lib/tab/tab-panel/tab-panel.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1334,8 +1808,8 @@ var TabModule = /** @class */ (function () {
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
             ],
-            declarations: [_tab_component__WEBPACK_IMPORTED_MODULE_2__["TabComponent"]],
-            exports: [_tab_component__WEBPACK_IMPORTED_MODULE_2__["TabComponent"]]
+            declarations: [_tab_component__WEBPACK_IMPORTED_MODULE_2__["TabComponent"], _tab_panel_tab_panel_component__WEBPACK_IMPORTED_MODULE_3__["TabPanelComponent"]],
+            exports: [_tab_component__WEBPACK_IMPORTED_MODULE_2__["TabComponent"], _tab_panel_tab_panel_component__WEBPACK_IMPORTED_MODULE_3__["TabPanelComponent"]]
         })
     ], TabModule);
     return TabModule;
@@ -1490,7 +1964,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-accordion></ui-accordion>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-accordion>\r\n        <ui-accordion-panel [header]=\"item.headerText\" [isOpen]=\"item.isOpen\" *ngFor=\"let item of items\">\r\n          <h1>{{item.bodyText}}</h1>\r\n        </ui-accordion-panel>\r\n      </ui-accordion>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -1539,6 +2013,17 @@ var AccordionComponent = /** @class */ (function () {
         };
         this.language = 'html';
         this.title = 'Accordion';
+        this.items = [{
+                headerText: 'tab1',
+                bodyText: 'bodyText 1',
+                isOpen: true
+            }, {
+                bodyText: 'bodyText 2',
+                headerText: 'tab2'
+            }, {
+                bodyText: 'bodyText 3',
+                headerText: 'tab3'
+            }];
     }
     AccordionComponent.prototype.ngOnInit = function () {
     };
@@ -2144,7 +2629,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-4\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-8\">\r\n    <div  *ngIf=\"rows\">\r\n      <ui-datatable\r\n        class=\"material\"\r\n        [rows]=\"rows\"\r\n        [columns]=\"columns\"\r\n        (page)=\"onPageChange($event)\"\r\n        (sorted)=\"onSort($event)\">\r\n      </ui-datatable>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-4\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-8\">\r\n    <div *ngIf=\"rows\">\r\n      <ui-datatable\r\n        class=\"material\"\r\n        [rows]=\"rows\"\r\n        [columns]=\"columns\"\r\n        (page)=\"onPageChange($event)\"\r\n        (sorted)=\"onSort($event)\">\r\n      </ui-datatable>\r\n      <h3>Pagination Separate</h3>\r\n      <ui-pagination\r\n        [size]=\"12\"\r\n        [totalCount]=\"65\"\r\n        (pageChange)=\"onPageChange($event)\">\r\n      </ui-pagination>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2655,7 +3140,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-tab></ui-tab>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-tab>\r\n        <ui-tab-panel *ngFor=\"let item of items\" [header]=\"item.headerText\" [isOpen]=\"item.isOpen\">\r\n          {{item.bodyText}}\r\n        </ui-tab-panel>\r\n      </ui-tab>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2704,6 +3189,17 @@ var TabComponent = /** @class */ (function () {
         };
         this.language = 'html';
         this.title = 'Tab';
+        this.items = [{
+                headerText: 'tab1',
+                bodyText: 'bodyText 1',
+                isOpen: true
+            }, {
+                bodyText: 'bodyText 2',
+                headerText: 'tab2'
+            }, {
+                bodyText: 'bodyText 3',
+                headerText: 'tab3'
+            }];
     }
     TabComponent.prototype.ngOnInit = function () {
     };

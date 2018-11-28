@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {Page} from "../datatable.interface";
 
 @Injectable({
   providedIn: 'root'

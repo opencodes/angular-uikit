@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-header" [attr.id]="'heading'+index">
+    <h5 class="mb-0">
+      <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapse'+index"
+              [attr.aria-expanded]="isOpen" [attr.aria-controls]="'collapse'+index" (click)="toggle(index)">
+        {{header}}
+      </button>
+    </h5>
+  </div>
+  <div [attr.id]="'collapse'+index" class="collapse " [ngClass]="{'show':isOpen}"
+       [attr.aria-labelledby]="'heading'+index" data-parent="#accordionExample">
+    <div class="card-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

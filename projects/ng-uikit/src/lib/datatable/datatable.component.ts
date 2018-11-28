@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Column, Page} from './datatable.interface';
+import {Column, Page, Paging} from './datatable.interface';
 import {DatatableService} from './service/datatable.service';
 
 @Component({
@@ -35,9 +35,7 @@ export class DatatableComponent implements OnInit {
   }
 
 
-  onPageChange(e) {
-
-    this.page = this._dts.getPageData(this.rows, this.size, 1);
-    console.log(this.page);
+  onPageChange(e: Paging) {
+    this.page = this._dts.getPageData(this.rows, this.size, e.pageNum);
   }
 }

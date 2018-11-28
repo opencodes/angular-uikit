@@ -29,7 +29,17 @@ export class AccordionComponent implements OnInit {
   };
   language = 'html';
   title = 'Accordion';
-
+  items = [{
+    headerText: 'tab1',
+    bodyText: 'bodyText 1',
+    isOpen: true
+  }, {
+    bodyText: 'bodyText 2',
+    headerText: 'tab2'
+  }, {
+    bodyText: 'bodyText 3',
+    headerText: 'tab3'
+  }];
   constructor() {
   }
 

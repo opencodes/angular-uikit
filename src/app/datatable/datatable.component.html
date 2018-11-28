@@ -7,7 +7,7 @@
     <app-doc [pageData]="codes"></app-doc>
   </div>
   <div class="col-md-8">
-    <div  *ngIf="rows">
+    <div *ngIf="rows">
       <ui-datatable
         class="material"
         [rows]="rows"
@@ -15,6 +15,12 @@
         (page)="onPageChange($event)"
         (sorted)="onSort($event)">
       </ui-datatable>
+      <h3>Pagination Separate</h3>
+      <ui-pagination
+        [size]="12"
+        [totalCount]="65"
+        (pageChange)="onPageChange($event)">
+      </ui-pagination>
     </div>
   </div>
 </div>
