@@ -1,5 +1,68 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["main"],{
 
+/***/ "./projects/ng-uikit/src/lib/accordion/accordion-panel-header/accordion-panel-header.component.css":
+/*!*********************************************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/accordion/accordion-panel-header/accordion-panel-header.component.css ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/accordion/accordion-panel-header/accordion-panel-header.component.html":
+/*!**********************************************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/accordion/accordion-panel-header/accordion-panel-header.component.html ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<ng-content></ng-content>\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/accordion/accordion-panel-header/accordion-panel-header.component.ts":
+/*!********************************************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/accordion/accordion-panel-header/accordion-panel-header.component.ts ***!
+  \********************************************************************************************************/
+/*! exports provided: AccordionPanelHeaderComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionPanelHeaderComponent", function() { return AccordionPanelHeaderComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AccordionPanelHeaderComponent = /** @class */ (function () {
+    function AccordionPanelHeaderComponent() {
+    }
+    AccordionPanelHeaderComponent.prototype.ngOnInit = function () {
+    };
+    AccordionPanelHeaderComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ui-accordion-panel-header',
+            template: __webpack_require__(/*! ./accordion-panel-header.component.html */ "./projects/ng-uikit/src/lib/accordion/accordion-panel-header/accordion-panel-header.component.html"),
+            styles: [__webpack_require__(/*! ./accordion-panel-header.component.css */ "./projects/ng-uikit/src/lib/accordion/accordion-panel-header/accordion-panel-header.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AccordionPanelHeaderComponent);
+    return AccordionPanelHeaderComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.css":
 /*!*******************************************************************************************!*\
   !*** ./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.css ***!
@@ -18,7 +81,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-header\" [attr.id]=\"'heading'+index\">\n    <h5 class=\"mb-0\">\n      <button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" [attr.data-target]=\"'#collapse'+index\"\n              [attr.aria-expanded]=\"isOpen\" [attr.aria-controls]=\"'collapse'+index\" (click)=\"toggle(index)\">\n        {{header}}\n      </button>\n    </h5>\n  </div>\n  <div [attr.id]=\"'collapse'+index\" class=\"collapse \" [ngClass]=\"{'show':isOpen}\"\n       [attr.aria-labelledby]=\"'heading'+index\" data-parent=\"#accordionExample\">\n    <div class=\"card-body\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"card\">\n  <div class=\"card-header\" [attr.id]=\"'heading'+index\">\n    <h5 class=\"mb-0\">\n      <a     data-toggle=\"collapse\" [attr.data-target]=\"'#collapse'+index\"\n              [attr.aria-expanded]=\"isOpen\" [attr.aria-controls]=\"'collapse'+index\" (click)=\"toggle(index)\">\n        <span class=\"ui-accordion-header-text\" *ngIf=\"!hasHeader\">\n          {{header}}\n        </span>\n        <ng-content select=\"ui-accordion-panel-header\" *ngIf=\"hasHeader\"></ng-content>\n      </a>\n    </h5>\n  </div>\n  <div [attr.id]=\"'collapse'+index\" class=\"collapse \" [ngClass]=\"{'show':isOpen}\"\n       [attr.aria-labelledby]=\"'heading'+index\" data-parent=\"#accordionExample\">\n    <div class=\"card-body\">\n      <ng-content></ng-content>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -33,6 +96,7 @@ module.exports = "<div class=\"card\">\n  <div class=\"card-header\" [attr.id]=\
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AccordionPanelComponent", function() { return AccordionPanelComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _accordion_panel_header_accordion_panel_header_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../accordion-panel-header/accordion-panel-header.component */ "./projects/ng-uikit/src/lib/accordion/accordion-panel-header/accordion-panel-header.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -43,9 +107,17 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AccordionPanelComponent = /** @class */ (function () {
     function AccordionPanelComponent() {
     }
+    Object.defineProperty(AccordionPanelComponent.prototype, "hasHeader", {
+        get: function () {
+            return this.headerComponent && this.headerComponent.length > 0;
+        },
+        enumerable: true,
+        configurable: true
+    });
     AccordionPanelComponent.prototype.ngOnInit = function () {
         this.index = Math.ceil(1000 * Math.random());
     };
@@ -60,6 +132,10 @@ var AccordionPanelComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
     ], AccordionPanelComponent.prototype, "isOpen", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ContentChildren"])(_accordion_panel_header_accordion_panel_header_component__WEBPACK_IMPORTED_MODULE_1__["AccordionPanelHeaderComponent"]),
+        __metadata("design:type", _angular_core__WEBPACK_IMPORTED_MODULE_0__["QueryList"])
+    ], AccordionPanelComponent.prototype, "headerComponent", void 0);
     AccordionPanelComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'ui-accordion-panel',
@@ -152,12 +228,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
 /* harmony import */ var _accordion_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./accordion.component */ "./projects/ng-uikit/src/lib/accordion/accordion.component.ts");
 /* harmony import */ var _accordion_panel_accordion_panel_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./accordion-panel/accordion-panel.component */ "./projects/ng-uikit/src/lib/accordion/accordion-panel/accordion-panel.component.ts");
+/* harmony import */ var _accordion_panel_header_accordion_panel_header_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./accordion-panel-header/accordion-panel-header.component */ "./projects/ng-uikit/src/lib/accordion/accordion-panel-header/accordion-panel-header.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -170,8 +248,8 @@ var AccordionModule = /** @class */ (function () {
             imports: [
                 _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
             ],
-            declarations: [_accordion_component__WEBPACK_IMPORTED_MODULE_2__["AccordionComponent"], _accordion_panel_accordion_panel_component__WEBPACK_IMPORTED_MODULE_3__["AccordionPanelComponent"]],
-            exports: [_accordion_component__WEBPACK_IMPORTED_MODULE_2__["AccordionComponent"], _accordion_panel_accordion_panel_component__WEBPACK_IMPORTED_MODULE_3__["AccordionPanelComponent"]]
+            declarations: [_accordion_component__WEBPACK_IMPORTED_MODULE_2__["AccordionComponent"], _accordion_panel_accordion_panel_component__WEBPACK_IMPORTED_MODULE_3__["AccordionPanelComponent"], _accordion_panel_header_accordion_panel_header_component__WEBPACK_IMPORTED_MODULE_4__["AccordionPanelHeaderComponent"]],
+            exports: [_accordion_component__WEBPACK_IMPORTED_MODULE_2__["AccordionComponent"], _accordion_panel_accordion_panel_component__WEBPACK_IMPORTED_MODULE_3__["AccordionPanelComponent"], _accordion_panel_header_accordion_panel_header_component__WEBPACK_IMPORTED_MODULE_4__["AccordionPanelHeaderComponent"]]
         })
     ], AccordionModule);
     return AccordionModule;
@@ -1964,7 +2042,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-accordion>\r\n        <ui-accordion-panel [header]=\"item.headerText\" [isOpen]=\"item.isOpen\" *ngFor=\"let item of items\">\r\n          <h1>{{item.bodyText}}</h1>\r\n        </ui-accordion-panel>\r\n      </ui-accordion>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content float-right\">\r\n      <ui-accordion>\r\n        <ui-accordion-panel   [isOpen]=\"item.isOpen\" *ngFor=\"let item of items\">\r\n          <ui-accordion-panel-header>\r\n            <h1>112312 {{item.headerText}}</h1>\r\n          </ui-accordion-panel-header>\r\n          <h1>{{item.bodyText}}</h1>\r\n        </ui-accordion-panel>\r\n      </ui-accordion>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 

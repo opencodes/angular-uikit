@@ -1,10 +1,13 @@
 <div class="card">
   <div class="card-header" [attr.id]="'heading'+index">
     <h5 class="mb-0">
-      <button class="btn btn-link" type="button" data-toggle="collapse" [attr.data-target]="'#collapse'+index"
+      <a     data-toggle="collapse" [attr.data-target]="'#collapse'+index"
               [attr.aria-expanded]="isOpen" [attr.aria-controls]="'collapse'+index" (click)="toggle(index)">
-        {{header}}
-      </button>
+        <span class="ui-accordion-header-text" *ngIf="!hasHeader">
+          {{header}}
+        </span>
+        <ng-content select="ui-accordion-panel-header" *ngIf="hasHeader"></ng-content>
+      </a>
     </h5>
   </div>
   <div [attr.id]="'collapse'+index" class="collapse " [ngClass]="{'show':isOpen}"

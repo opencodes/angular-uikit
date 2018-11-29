@@ -9,7 +9,10 @@
   <div class="col-md-6">
     <div class="demo-content float-right">
       <ui-accordion>
-        <ui-accordion-panel [header]="item.headerText" [isOpen]="item.isOpen" *ngFor="let item of items">
+        <ui-accordion-panel   [isOpen]="item.isOpen" *ngFor="let item of items">
+          <ui-accordion-panel-header>
+            <h1>112312 {{item.headerText}}</h1>
+          </ui-accordion-panel-header>
           <h1>{{item.bodyText}}</h1>
         </ui-accordion-panel>
       </ui-accordion>
