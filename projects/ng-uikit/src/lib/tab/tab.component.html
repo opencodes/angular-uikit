@@ -10,6 +10,22 @@
       {{item.headerText}}
     </a>
   </li>
+  <li role="presentation" class="dropdown" *ngIf="optionTabs.length" [ngClass]="{'show': isShowDropdown}">
+    <a class="dropdown-toggle" id="myTabDrop" (click)="toggleDropdown()" data-toggle="dropdown" aria-controls="myTabDrop-contents" attr.aria-expanded="{{isShowDropdown}}">more
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="myTabDrop" id="myTabDrop1-contents" [ngClass]="{'show': isShowDropdown}">
+      <li *ngFor="let item of optionTabs">
+        <a [attr.id]="'tab'+item.index"
+           data-toggle="tab"
+           (click)="toggle(item.index)"
+           role="tab" aria-controls="home"
+           [attr.aria-selected]="item.isOpen"
+           [ngClass]="{'active':item.isOpen}">
+          {{item.headerText}}</a>
+      </li>
+    </ul>
+  </li>
 </ul>
 <div class="tab-content" id="myTabContent">
   <ng-content></ng-content>

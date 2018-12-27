@@ -39,38 +39,56 @@ export class DatatableComponent implements OnInit {
   ngOnInit() {
     this.columns = [
       {
-        field: 'name',
-        label: 'Name',
+        field: 'busId',
+        label: 'Changes',
         sortable: true,
-        className:'col-md-3'
+        className: 'col-md-1'
       },
       {
-        field: 'position',
-        label: 'Position',
+        field: 'comments',
+        label: 'Comments',
         sortable: true,
-        className:'col-md-3'
+        className: 'col-md-1'
       },
       {
-        field: 'office',
-        label: 'Office',
+        field: 'busId',
+        label: 'Business Id',
         sortable: true,
-        className:'col-md-2'
+        className: 'col-md-1'
       },
       {
-        field: 'extn',
-        label: 'Extn',
+        field: 'busName',
+        label: 'Business',
         sortable: true,
-        className:'col-md-1'
+        className: 'col-md-1'
       },
       {
-        field: 'startDate',
-        label: 'Start Date',
+        field: 'status',
+        label: 'Status',
         sortable: true,
-        className:'col-md-2'
+        className: 'col-md-1'
+      },
+      {
+        field: 'itemId',
+        label: 'ItemID',
+        sortable: true,
+        className: 'col-md-1'
+      },
+      {
+        field: 'poiId',
+        label: 'PoiId',
+        sortable: true,
+        className: 'col-md-1'
+      },
+      {
+        field: 'updated',
+        label: 'Updated',
+        sortable: true,
+        className: 'col-md-1'
       }
-    ]
+    ];
     this.api.getJson('../assets/datatable.json').subscribe(res => {
-      this.rows = res['data'];
+      this.rows = res;
     });
   }
 

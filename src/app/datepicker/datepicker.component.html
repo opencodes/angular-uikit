@@ -4,22 +4,34 @@
 </div>
 <div class="row">
   <div class="col-md-6">
-    <app-doc [pageData]="codes"></app-doc>
+    <!--<app-doc [pageData]="codes"></app-doc>-->
   </div>
   <div class="col-md-6">
-    <p class="demo-output">
-      <code class="pull-left">From :  {{selectedDateFrom}}</code>
-    </p>
-    <p class="demo-output">
-      <code class="pull-left">To :  {{selectedDateTo}}</code>
-    </p>
+    <!--<p class="demo-output">-->
+      <!--<code class="pull-left">From :  {{selectedDateFrom}}</code>-->
+    <!--</p>-->
+    <!--<p class="demo-output">-->
+      <!--<code class="pull-left">To :  {{selectedDateTo}}</code>-->
+    <!--</p>-->
     <div class="demo-content row">
-      <div class="col-md-6">
-        <ui-datepicker (selected)="onSelectFrom($event)"></ui-datepicker>
+
+      <div class="col-md-12">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <ui-datepicker (selected)="onSelectFrom($event)" mode="range" format="yyyy/mm/dd"></ui-datepicker>
+
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
-      <div class="col-md-6">
-        <ui-datepicker (selected)="onSelectTo($event)"></ui-datepicker>
-      </div>
+
     </div>
   </div>
 </div>

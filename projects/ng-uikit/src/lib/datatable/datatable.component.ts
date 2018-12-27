@@ -8,12 +8,11 @@ import {DatatableService} from './service/datatable.service';
   styleUrls: ['./datatable.component.css']
 })
 export class DatatableComponent implements OnInit {
-
   @Input() rows;
   @Input() columns: Column;
   @Output() pageChange = new EventEmitter();
   @Output() sorted = new EventEmitter();
-  size = 6;
+  @Input() size = 6;
   page: Page;
 
   constructor(private _dts: DatatableService) {

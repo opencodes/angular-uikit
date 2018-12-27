@@ -18,4 +18,5 @@ export interface DateObj {
   year: string;
   UTCString: string;
   numericDate: string;
+  formatDate: string;
 }

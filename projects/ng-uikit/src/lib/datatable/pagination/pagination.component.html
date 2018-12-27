@@ -1,14 +1,25 @@
 <div class="m-3">
   <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-center">
-      <ng-container *ngFor="let page of pages; index as i; first as isFirst; last as isLast;">
-        <li class="page-item " *ngIf="isFirst" [ngClass]="{'disabled':pageNum === 1}" (click)="onPageChange(i+1)">
-          <a class="page-link" tabindex="-1">Previous</a>
+      <ng-container>
+
+        <li class="page-item " [ngClass]="{'disabled':pageNum === 1}" (click)="prev()" [attr.disabled]="pageNum === 1">
+          <a class="page-link" tabindex="-1">Previous {{pageNum}} ,{{pageCount}}</a>
         </li>
-        <li class="page-item" (click)="onPageChange(i+1)">
-          <a class="page-link"  [ngClass]="{'active disabled':pageNum===i+1}">{{i+1}}</a>
+
+        <li class="page-item" (click)="onPageChange(page)" *ngFor="let page of pages; index as i; first as isFirst; last as isLast;">
+          <a class="page-link" [ngClass]="{'active disabled':pageNum===page}">{{page}}</a>
         </li>
-        <li class="page-item" *ngIf="isLast" [ngClass]="{'disabled':pageNum===pages.length}" (click)="onPageChange(i+1)">
+
+        <li class="page-item" *ngIf=" pageCount > displayNumbers && lastPage < pageCount" [ngClass]="{'disabled':pageNum===pages.length}" (click)="shiftBoundary()">
+          <a class="page-link">...</a>
+        </li>
+
+        <li class="page-item" *ngIf="pageCount > displayNumbers && lastPage < pageCount" [ngClass]="{'disabled':pageNum===pageCount}" (click)="onPageChange(pageCount)">
+          <a class="page-link"> {{pageCount}}</a>
+        </li>
+
+        <li class="page-item" [ngClass]="{'disabled':pageNum === pageCount}" [attr.disabled]="(pageNum === pageCount)?'disabled':''" (click)="next()">
           <a class="page-link"> Next</a>
         </li>
       </ng-container>

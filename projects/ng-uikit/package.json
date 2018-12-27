@@ -1,9 +1,11 @@
 {
   "name": "ng-uikit",
-  "version": "0.0.6",
+  "version": "0.1.1",
   "peerDependencies": {
     "@angular/common": "^6.0.0-rc.0 || ^6.0.0",
-    "@angular/core": "^6.0.0-rc.0 || ^6.0.0"
+    "@angular/core": "^6.0.0-rc.0 || ^6.0.0",
+    "@fortawesome/fontawesome-free": "^5.5.0",
+    "bootstrap": "^3.3.7"
   },
   "description": "UI ToolKit for Angular 2+",
   "keywords": [

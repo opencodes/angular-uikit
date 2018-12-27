@@ -11,17 +11,17 @@ import {DateObj, DefaultLocaleWeekdaysShort} from './datepicker.interface';
 export class DatepickerComponent implements OnInit {
   @Output() selected = new EventEmitter();
   @Input() mode: string = 'single' || 'range';
+  @Input() format: string;
+  @Input() labelText: string;
   items = [
     {
       url: 'a',
       text: 'Action',
       isDivider: true
-    },
-    {
+    }, {
       url: 'a',
       text: 'Another action'
-    },
-    {
+    }, {
       url: 'a',
       text: 'Something else here'
     }
@@ -33,12 +33,16 @@ export class DatepickerComponent implements OnInit {
     from: null,
     to: null
   };
+  selectedDate: string;
+  showCal: boolean = false;
 
   constructor(private datepickerSvc: DatepickerService) {
   }
 
   ngOnInit() {
+    this.labelText =  'Select Date';
     const d = new Date();
+    this.datepickerSvc.setFormat(this.format || 'yyyy-mm-dd');
     this.selectedDateTime = this.datepickerSvc.getDateJsonObj(
       d.getFullYear(),
       d.getMonth(),
@@ -48,7 +52,6 @@ export class DatepickerComponent implements OnInit {
       d.getSeconds()
     );
     this.daysList = this.datepickerSvc.getDatesOfMonth();
-    console.log(this.selectedDateTime);
   }
 
   isWithinRange(day): boolean {
@@ -58,7 +61,6 @@ export class DatepickerComponent implements OnInit {
       const today = parseInt(a.join(''), 10);
       const from = parseInt(this.range.from.numericDate.split('-').join(''), 10);
       const to = parseInt(this.range.to.numericDate.split('-').join(''), 10);
-      console.log(today, from, to);
       return (today >= from && today <= to);
     }
     return false;
@@ -93,14 +95,17 @@ export class DatepickerComponent implements OnInit {
     if (this.mode === 'range') {
       if (this.range.from) {
         this.range.to = this.selectedDateTime;
+        this.selectedDate = this.range.from.formatDate + " - " + this.range.to.formatDate;
       } else {
         this.range.from = this.selectedDateTime;
+        this.selectedDate = this.range.from.formatDate + " ";
       }
       this.selected.emit(this.range);
     } else {
+      this.selectedDate = this.selectedDateTime.formatDate;
+      this.showCal = false;
       this.selected.emit(this.selectedDateTime);
     }
-    console.log(this.selectedDateTime, this.range);
   }
 
   prevMonth() {
@@ -129,5 +134,13 @@ export class DatepickerComponent implements OnInit {
     );
     this.daysList = this.datepickerSvc.getDatesOfMonth();
     this.selected.emit(this.selectedDateTime);
+  }
+
+  clear() {
+    this.range = {
+      from: null,
+      to: null
+    };
+    this.selectedDate = ''
   }
 }

@@ -1,18 +1,39 @@
-<ui-dropdown isOpen="true">
-  <div class="c-datepicker c-datepicker--open">
+<div class="form-group">
+  <label for="basic-url">{{labelText}}</label>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">
+        <i class="far fa-calendar-alt"></i>
+      </span>
+    </div>
+    <input type="text" class="form-control" placeholder="Date" (focus)="showCal=true" aria-label="Date"
+           aria-describedby="basic-addon1" [ngModel]="selectedDate" id="basic-url">
+  </div>
+</div>
+<div class="datepicker-container">
+  <div class="c-datepicker c-datepicker--open" *ngIf="showCal">
     <a class="c-datepicker__toggle c-datepicker__toggle--right c-datepicker--show-time js-show-clock"
        title="show time picker">
       <i class="far fa-clock"></i>
     </a>
 
-    <a class="c-datepicker__toggle c-datepicker__toggle--left c-datepicker--show-calendar js-show-calendar is-selected"
-       title="show date picker">
-      <i class="far fa-calendar-alt"></i>
-    </a>
+    <div
+      class="c-datepicker__toggle c-datepicker__toggle--left c-datepicker--show-calendar js-show-calendar is-selected">
+      <!--&nbsp;
+      <a class=""
+         title="show date picker">
+        <i class="far fa-calendar-alt"></i>
+      </a>
+      &nbsp;-->
+
+      <i class="far fa-trash-alt" title="clear datepicker" (click)="clear()"></i>
+
+    </div>
+
 
     <div class="c-datepicker__header">
       <div class="c-datepicker__header-day">
-        <span class="js-day">{{selectedDateTime.UTCString}}</span>
+        <span class="js-day">{{selectedDateTime.formatDate}}</span>
       </div>
       <!--<div class="c-datepicker__header-date">-->
       <!--<span class="c-datepicker__header-date__month js-date-month">Jun 2019</span>-->
@@ -28,8 +49,10 @@
       <div class="c-datepicker__calendar" style="display: inline-block;">
         <div class="c-datepicker__date">
           <div class="c-datepicker__month">
-            <button class="c-datepicker__back" type="button" (click)="prevMonth()"><i class="fas fa-chevron-left"></i></button>
-            <button class="c-datepicker__next" type="button" (click)="nextMonth()"><i class="fas fa-chevron-right"></i></button>
+            <button class="c-datepicker__back" type="button" (click)="prevMonth()"><i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="c-datepicker__next" type="button" (click)="nextMonth()"><i class="fas fa-chevron-right"></i>
+            </button>
             <div class="rd-month-label">{{selectedDateTime.monthStringShort}} {{selectedDateTime.year}}</div>
             <table class="c-datepicker__days">
               <thead class="c-datepicker__days-head">
@@ -41,8 +64,9 @@
               <tbody class="c-datepicker__days-body" data-rome-offset="0">
               <!-- Date 1-31 -->
               <tr class="c-datepicker__days-row" *ngFor="let row of daysList">
-                <td class="c-datepicker__day-body" *ngFor="let day of row" [ngClass]="getSelectedClass(day)" (click)="setDate(day)">
-                  <span >{{day}}</span>
+                <td class="c-datepicker__day-body" *ngFor="let day of row" [ngClass]="getSelectedClass(day)"
+                    (click)="setDate(day)">
+                  <span>{{day}}</span>
                 </td>
               </tr>
               <!--<tr class="c-datepicker__days-row">-->
@@ -107,8 +131,8 @@
       </div>
     </div>
     <div class="modal-btns">
-      <a class="c-btn c-btn--flat js-cancel">Cancel</a>
-      <a class="c-btn c-btn--flat js-ok">OK</a>
+      <a class="c-btn c-btn--flat js-cancel" (click)="clear()">Cancel</a>
+      <a class="c-btn c-btn--flat js-ok" (click)="showCal=false">OK</a>
     </div>
   </div>
-</ui-dropdown>
+</div>

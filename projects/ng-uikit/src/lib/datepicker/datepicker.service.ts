@@ -11,6 +11,8 @@ import {
   providedIn: 'root'
 })
 export class DatepickerService {
+  private format: string;
+
   get dateObj(): Date {
     return this._dateObj;
   }
@@ -72,7 +74,28 @@ export class DatepickerService {
       seconds: d.getSeconds().toString(),
       year: d.getFullYear().toString(),
       UTCString: d.toUTCString(),
-      numericDate: d.getFullYear() + '-' + monthNumeric + '-' + date// + '-' + d.getHours() + '-' + d.getSeconds()
+      numericDate: d.getFullYear() + '-' + monthNumeric + '-' + date + '-' + d.getHours() + '-' + d.getSeconds(),
+      formatDate: this.getFormatDate(d)
     };
+  }
+
+  setFormat(format: string) {
+    this.format = format;
+  }
+
+  private getFormatDate(d): string {
+    let dateStr = this.format;
+    console.log(d.getFullYear())
+    dateStr = dateStr.replace('yyyy', d.getFullYear());
+    dateStr = dateStr.replace('mm', this.getMonthString(d));
+    dateStr = dateStr.replace('dd', d.getDate());
+    console.log(dateStr)
+    return dateStr;
+  }
+
+  getMonthString(date) {
+    console.log(date.getMonth())
+    var month = date.getMonth() + 1;
+    return month < 10 ? '0' + month : '' + month; // ('' + month) for string result
   }
 }

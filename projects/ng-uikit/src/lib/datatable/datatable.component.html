@@ -8,13 +8,10 @@
   <div class="ui-dt-tbody">
     <div *ngFor="let row of page.rows;let i=index;" class="row ui-dt-row">
       <div [attr.class]="col.className +' ui-dt-cell'" *ngFor="let col of columns;let k=index;">
-        {{i}} {{row[k]}}
+        {{row[col.field]}}
       </div>
     </div>
   </div>
 </div>
-<ui-pagination
-  [size]="size"
-  [totalCount]="rows.length"
-  (pageChange)="onPageChange($event)">
-</ui-pagination>
+
+<ui-pagination [size]="size" [totalCount]="rows.length" (pageChange)="onPageChange($event)"></ui-pagination>

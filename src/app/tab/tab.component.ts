@@ -36,9 +36,6 @@ export class TabComponent implements OnInit {
   }, {
     bodyText: 'bodyText 2',
     headerText: 'tab2'
-  }, {
-    bodyText: 'bodyText 3',
-    headerText: 'tab3'
   }];
 
   constructor() {
