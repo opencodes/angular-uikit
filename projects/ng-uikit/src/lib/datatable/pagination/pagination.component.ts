@@ -38,8 +38,12 @@ export class PaginationComponent implements OnInit {
     });
   }
 
-  shiftBoundary() {
-    const lastPage = this.pages[this.displayNumbers - 1];
+  shiftBoundary(isReverse = false) {
+
+    let lastPage = this.pages[this.displayNumbers - 1];
+    if (isReverse) {
+      lastPage -= this.displayNumbers * 2;
+    }
     this.pages = this.totalPages.slice(lastPage, lastPage + 5);
     this.lastPage = this.pages[this.displayNumbers - 1];
   }
@@ -51,6 +55,8 @@ export class PaginationComponent implements OnInit {
 
   prev() {
     this.pageNum--;
-    if (this.pageNum > this.lastPage) this.shiftBoundary();
+    if ((this.pageNum) % this.displayNumbers === 0) {
+       this.shiftBoundary(true);
+    }
   }
 }
