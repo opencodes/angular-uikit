@@ -39,50 +39,50 @@ export class DatatableComponent implements OnInit {
   ngOnInit() {
     this.columns = [
       {
-        field: 'busId',
-        label: 'Changes',
+        field: 'iD',
+        label: 'ID',
         sortable: true,
         className: 'col-md-1'
       },
       {
-        field: 'comments',
-        label: 'Comments',
+        field: 'runId',
+        label: 'runId',
         sortable: true,
         className: 'col-md-1'
       },
       {
-        field: 'busId',
+        field: 'businessId',
         label: 'Business Id',
         sortable: true,
         className: 'col-md-1'
       },
       {
-        field: 'busName',
-        label: 'Business',
+        field: 'dataType',
+        label: 'dataType',
         sortable: true,
         className: 'col-md-1'
       },
       {
         field: 'status',
-        label: 'Status',
+        label: 'status',
         sortable: true,
         className: 'col-md-1'
       },
       {
-        field: 'itemId',
-        label: 'ItemID',
+        field: 'totalSqoop',
+        label: 'totalSqoop',
         sortable: true,
         className: 'col-md-1'
       },
       {
-        field: 'poiId',
-        label: 'PoiId',
+        field: 'newAdds',
+        label: 'newAdds',
         sortable: true,
         className: 'col-md-1'
       },
       {
-        field: 'updated',
-        label: 'Updated',
+        field: 'processTimestamp',
+        label: 'processTimestamp',
         sortable: true,
         className: 'col-md-1'
       }

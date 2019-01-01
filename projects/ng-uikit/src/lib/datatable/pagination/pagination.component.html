@@ -4,7 +4,7 @@
       <ng-container>
 
         <li class="page-item " [ngClass]="{'disabled':pageNum === 1}" (click)="prev()" [attr.disabled]="pageNum === 1">
-          <a class="page-link" tabindex="-1">Previous {{pageNum}} ,{{pageCount}}</a>
+          <a class="page-link" tabindex="-1">Previous </a>
         </li>
 
         <li class="page-item" (click)="onPageChange(page)" *ngFor="let page of pages; index as i; first as isFirst; last as isLast;">

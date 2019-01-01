@@ -10,17 +10,18 @@
     <div *ngIf="rows">
       <ui-datatable
         class="material"
+        [size]="1"
         [rows]="rows"
         [columns]="columns"
         (page)="onPageChange($event)"
         (sorted)="onSort($event)">
       </ui-datatable>
       <!--<h3>Pagination Separate</h3>-->
-      <ui-pagination
-        [size]="5"
-        [totalCount]="100"
-        (pageChange)="onPageChange($event)">
-      </ui-pagination>
+      <!--<ui-pagination-->
+        <!--[size]="5"-->
+        <!--[totalCount]="100"-->
+        <!--(pageChange)="onPageChange($event)">-->
+      <!--</ui-pagination>-->
     </div>
   </div>
 </div>
