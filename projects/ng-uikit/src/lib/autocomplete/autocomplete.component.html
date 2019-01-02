@@ -1,3 +1,11 @@
-<p>
-  autocomplete works!
-</p>
+<div class="form-group ui-autocomplete">
+  <label for="UIAutocomplete">{{label}}</label>
+  <input type="text" class="form-control" id="UIAutocomplete" aria-describedby="emailHelp" placeholder="Enter {{label}}"
+         [ngModel]="selectedItem[niddle]" (keyup)="filter($event.target.value)">
+  <small id="emailHelp" class="form-text text-muted" *ngIf="helpText">{{helpText}}</small>
+  <div class="ui-autocomplete-container">
+    <ul class="list-group ui-autocomplete-list" *ngIf="filteredList.length">
+      <li class="list-group-item ui-autocomplete-list-item" (click)="selectItem(item)" *ngFor="let item of filteredList">{{item[niddle]}}</li>
+    </ul>
+  </div>
+</div>

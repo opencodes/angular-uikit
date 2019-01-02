@@ -15,7 +15,7 @@
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-        <ui-autocomplete [sourceURL]="jsonURL" niddle="value" (selected)="onSelection($event)"></ui-autocomplete>
+        <ui-autocomplete [sourceURL]="jsonURL" niddle="code" (selected)="onSelection($event)"></ui-autocomplete>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Check me out</label>

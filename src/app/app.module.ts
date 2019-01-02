@@ -29,6 +29,8 @@ import {TabModule} from '../../projects/ng-uikit/src/lib/tab/tab.module';
 import {TooltipModule} from '../../projects/ng-uikit/src/lib/tooltip/tooltip.module';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {ApiService} from "./shared/api.service";
+import {AutocompleteComponent} from "./autocomplete/autocomplete.component";
+import {AutocompleteModule} from "../../projects/ng-uikit/src/lib/autocomplete/autocomplete.module";
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import {ApiService} from "./shared/api.service";
     DatatableComponent,
     TabComponent,
     DocComponent,
-    DashboardComponent
+    DashboardComponent,
+    AutocompleteComponent
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import {ApiService} from "./shared/api.service";
     NgUikitModule,
     CarouselModule,
     AccordionModule,
+    AutocompleteModule,
     DatepickerModule,
     DropdownModule,
     ChartModule,
@@ -66,6 +70,7 @@ import {ApiService} from "./shared/api.service";
     RouterModule.forRoot([
       {path: '', component: DashboardComponent},
       {path: 'Accordion', component: AccordionComponent},
+      {path: 'Autocomplete', component: AutocompleteComponent},
       {path: 'Card', component: CardComponent},
       {path: 'Carousel', component: CarouselComponent},
       {path: 'Chart', component: ChartComponent},
