@@ -1,17 +1,31 @@
 <div class="ui-dt-table">
   <div class="ui-dt-thead row">
-    <div *ngFor="let col of columns" [ngClass]="getColumnClass(col)">
+    <div *ngFor="let col of columns" [ngClass]="getColumnClass(col)"  >
       {{col.label}}
-      <i class="fas fa-sort-amount-up"></i>
+      <i class="fas fa-sort-amount-up" (click)="sort(col)"></i>
+    </div>
+  </div>
+  <div class="ui-dt-thead row">
+    <div *ngFor="let col of columns" [ngClass]="getColumnClass(col)"  >
+        <input type="text" class="form-control form-control-sm"
+               [name]="col.field"
+               [ngModel]="search[col.field]"
+               (change)="changeFilter($event.target.value)"
+               (keyup)="filter($event, col.field, $event.target.value)"
+        >
     </div>
   </div>
   <div class="ui-dt-tbody">
     <div *ngFor="let row of page.rows;let i=index;" class="row ui-dt-row">
       <div [attr.class]="col.className +' ui-dt-cell'" *ngFor="let col of columns;let k=index;">
-        {{row[col.field]}}
+         {{row[col.field]}}
       </div>
     </div>
   </div>
 </div>
+<ui-pagination
+  [size]="size"
+  [totalCount]="rows.length"
+  (pageChange)="onPageChange($event)">
+</ui-pagination>
 
-<ui-pagination [size]="size" [totalCount]="rows.length" (pageChange)="onPageChange($event)"></ui-pagination>
