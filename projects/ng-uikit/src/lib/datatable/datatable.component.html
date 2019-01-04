@@ -10,7 +10,6 @@
         <input type="text" class="form-control form-control-sm"
                [name]="col.field"
                [ngModel]="search[col.field]"
-               (change)="changeFilter($event.target.value)"
                (keyup)="filter($event, col.field, $event.target.value)"
         >
     </div>
@@ -25,7 +24,7 @@
 </div>
 <ui-pagination
   [size]="size"
-  [totalCount]="rows.length"
+  [totalCount]="resultCount"
   (pageChange)="onPageChange($event)">
 </ui-pagination>
 

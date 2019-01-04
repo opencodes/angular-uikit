@@ -32,6 +32,7 @@ export class DatatableComponent implements OnInit {
   title = 'Datatable';
   rows;
   columns;
+  size=2;
 
   constructor(private api: ApiService) {
   }

@@ -13,9 +13,10 @@ export class DatatableComponent implements OnInit {
   @Input() columns: Column;
   @Output() pageChange = new EventEmitter();
   @Output() sorted = new EventEmitter();
-  size = 6;
+  @Input() size = 6;
   page: Page;
   search: any = {};
+  resultCount: number;
 
   constructor(private _dts: DatatableService) {
   }
@@ -23,6 +24,7 @@ export class DatatableComponent implements OnInit {
   ngOnInit() {
     this.page = this._dts.getPageData(this.rows, this.size, 1);
     console.log(this.page);
+    this.resultCount = this.rows.length;
   }
 
   getColumnClass(col: Column) {
@@ -72,16 +74,13 @@ export class DatatableComponent implements OnInit {
             rows.push(item);
           }
         });
+        this.resultCount = rows.length;
         this.page = this._dts.getPageData(rows, this.size, 1);
       }
     } else {
+      this.resultCount = this.rows.length;
       this.page = this._dts.getPageData(this.rows, this.size, 1);
     }
   }
 
-  changeFilter(val) {
-    if (val) {
-
-    }
-  }
 }

@@ -10,7 +10,7 @@
     <div *ngIf="rows">
       <ui-datatable
         class="material"
-        [size]="1"
+        [size]="size"
         [rows]="rows"
         [columns]="columns"
         (page)="onPageChange($event)"
