@@ -88,7 +88,7 @@ export class DatatableComponent implements OnInit {
         className: 'col-md-1'
       }
     ];
-    this.api.getJson('../assets/datatable.json').subscribe(res => {
+    this.api.getJson('./assets/datatable.json').subscribe(res => {
       this.rows = res;
     });
   }

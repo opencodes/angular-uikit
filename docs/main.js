@@ -259,6 +259,187 @@ var AccordionModule = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./projects/ng-uikit/src/lib/autocomplete/autocomplete.component.css":
+/*!***************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/autocomplete/autocomplete.component.css ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ".ui-autocomplete-container{\r\n  position: relative;\r\n}\r\n.ui-autocomplete-list{\r\n  position: absolute;\r\n  z-index: 9;\r\n  width: 100%;\r\n}\r\n.ui-autocomplete-list-item:hover{\r\n  cursor: pointer;\r\n  color: #fff;\r\n  background-color: #007bff;\r\n  border-color: #007bff;\r\n}\r\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/autocomplete/autocomplete.component.html":
+/*!****************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/autocomplete/autocomplete.component.html ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"form-group ui-autocomplete\">\n  <label for=\"UIAutocomplete\">{{label}}</label>\n  <input type=\"text\" class=\"form-control\" id=\"UIAutocomplete\" aria-describedby=\"emailHelp\" placeholder=\"Enter {{label}}\"\n         [ngModel]=\"selectedItem[niddle]\" (keyup)=\"filter($event.target.value)\">\n  <small id=\"emailHelp\" class=\"form-text text-muted\" *ngIf=\"helpText\">{{helpText}}</small>\n  <div class=\"ui-autocomplete-container\">\n    <ul class=\"list-group ui-autocomplete-list\" *ngIf=\"filteredList.length\">\n      <li class=\"list-group-item ui-autocomplete-list-item\" (click)=\"selectItem(item)\" *ngFor=\"let item of filteredList\">{{item[niddle]}}</li>\n    </ul>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/autocomplete/autocomplete.component.ts":
+/*!**************************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/autocomplete/autocomplete.component.ts ***!
+  \**************************************************************************/
+/*! exports provided: AutocompleteComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AutocompleteComponent", function() { return AutocompleteComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var AutocompleteComponent = /** @class */ (function () {
+    function AutocompleteComponent(http) {
+        this.http = http;
+        this.niddle = 'name';
+        this.label = 'Name';
+        this.selected = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
+        this.helpText = 'Enter at least 2 char to search';
+        this.filteredList = [];
+        this.selectedItem = {};
+    }
+    AutocompleteComponent.prototype.ngOnInit = function () {
+        if (this.sourceURL) {
+            this.loadResponse();
+        }
+    };
+    AutocompleteComponent.prototype.filter = function (key) {
+        if (key && key.length >= 2) {
+            this.filteredList = this.filterResult(key);
+            console.log(this.filteredList);
+        }
+        else {
+            this.filteredList = [];
+            this.selectedItem = {};
+        }
+    };
+    AutocompleteComponent.prototype.filterResult = function (key) {
+        var _this = this;
+        var result = [];
+        this.source.forEach(function (item) {
+            var name = item[_this.niddle].toLowerCase();
+            if (name.indexOf(key.toLowerCase()) !== -1 && (result.length < 10)) {
+                result.push(item);
+            }
+            else {
+                return true;
+            }
+        });
+        return result;
+    };
+    AutocompleteComponent.prototype.loadResponse = function () {
+        var _this = this;
+        var url = this.sourceURL || '../../assets/autocomplete.json';
+        this.http.get(url).subscribe(function (res) {
+            if (Array.isArray(res)) {
+                _this.source = res;
+            }
+        });
+    };
+    AutocompleteComponent.prototype.selectItem = function (item) {
+        this.selectedItem = item;
+        this.filteredList = [];
+        this.selected.emit(item);
+    };
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Array)
+    ], AutocompleteComponent.prototype, "source", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", String)
+    ], AutocompleteComponent.prototype, "sourceURL", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AutocompleteComponent.prototype, "niddle", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AutocompleteComponent.prototype, "label", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"])(),
+        __metadata("design:type", Object)
+    ], AutocompleteComponent.prototype, "selected", void 0);
+    __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
+        __metadata("design:type", Object)
+    ], AutocompleteComponent.prototype, "helpText", void 0);
+    AutocompleteComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'ui-autocomplete',
+            template: __webpack_require__(/*! ./autocomplete.component.html */ "./projects/ng-uikit/src/lib/autocomplete/autocomplete.component.html"),
+            styles: [__webpack_require__(/*! ./autocomplete.component.css */ "./projects/ng-uikit/src/lib/autocomplete/autocomplete.component.css")]
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], AutocompleteComponent);
+    return AutocompleteComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./projects/ng-uikit/src/lib/autocomplete/autocomplete.module.ts":
+/*!***********************************************************************!*\
+  !*** ./projects/ng-uikit/src/lib/autocomplete/autocomplete.module.ts ***!
+  \***********************************************************************/
+/*! exports provided: AutocompleteModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AutocompleteModule", function() { return AutocompleteModule; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm5/common.js");
+/* harmony import */ var _autocomplete_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./autocomplete.component */ "./projects/ng-uikit/src/lib/autocomplete/autocomplete.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var AutocompleteModule = /** @class */ (function () {
+    function AutocompleteModule() {
+    }
+    AutocompleteModule = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
+            imports: [
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"]
+            ],
+            declarations: [_autocomplete_component__WEBPACK_IMPORTED_MODULE_2__["AutocompleteComponent"]],
+            exports: [_autocomplete_component__WEBPACK_IMPORTED_MODULE_2__["AutocompleteComponent"]]
+        })
+    ], AutocompleteModule);
+    return AutocompleteModule;
+}());
+
+
+
+/***/ }),
+
 /***/ "./projects/ng-uikit/src/lib/card/card.component.css":
 /*!***********************************************************!*\
   !*** ./projects/ng-uikit/src/lib/card/card.component.css ***!
@@ -736,7 +917,7 @@ module.exports = ".ui-dt-table {\r\n\r\n}\r\n\r\n.ui-dt-thead {\r\n  border-bott
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"ui-dt-table\">\r\n  <div class=\"ui-dt-thead row\">\r\n    <div *ngFor=\"let col of columns\" [ngClass]=\"getColumnClass(col)\">\r\n      {{col.label}}\r\n      <i class=\"fas fa-sort-amount-up\"></i>\r\n    </div>\r\n  </div>\r\n  <div class=\"ui-dt-tbody\">\r\n    <div *ngFor=\"let row of page.rows;let i=index;\" class=\"row ui-dt-row\">\r\n      <div [attr.class]=\"col.className +' ui-dt-cell'\" *ngFor=\"let col of columns;let k=index;\">\r\n        {{row[col.field]}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<ui-pagination [size]=\"size\" [totalCount]=\"rows.length\" (pageChange)=\"onPageChange($event)\"></ui-pagination>\r\n"
+module.exports = "<div class=\"ui-dt-table\">\r\n  <div class=\"ui-dt-thead row\">\r\n    <div *ngFor=\"let col of columns\" [ngClass]=\"getColumnClass(col)\"  >\r\n      {{col.label}}\r\n      <i class=\"fas fa-sort-amount-up\" (click)=\"sort(col)\"></i>\r\n    </div>\r\n  </div>\r\n  <div class=\"ui-dt-thead row\">\r\n    <div *ngFor=\"let col of columns\" [ngClass]=\"getColumnClass(col)\"  >\r\n        <input type=\"text\" class=\"form-control form-control-sm\"\r\n               [name]=\"col.field\"\r\n               [ngModel]=\"search[col.field]\"\r\n               (keyup)=\"filter($event, col.field, $event.target.value)\"\r\n        >\r\n    </div>\r\n  </div>\r\n  <div class=\"ui-dt-tbody\">\r\n    <div *ngFor=\"let row of page.rows;let i=index;\" class=\"row ui-dt-row\">\r\n      <div [attr.class]=\"col.className +' ui-dt-cell'\" *ngFor=\"let col of columns;let k=index;\">\r\n         {{row[col.field]}}\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<ui-pagination\r\n  [size]=\"size\"\r\n  [totalCount]=\"resultCount\"\r\n  (pageChange)=\"onPageChange($event)\">\r\n</ui-pagination>\r\n\r\n"
 
 /***/ }),
 
@@ -769,9 +950,12 @@ var DatatableComponent = /** @class */ (function () {
         this.pageChange = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.sorted = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["EventEmitter"]();
         this.size = 6;
+        this.search = {};
     }
     DatatableComponent.prototype.ngOnInit = function () {
         this.page = this._dts.getPageData(this.rows, this.size, 1);
+        console.log(this.page);
+        this.resultCount = this.rows.length;
     };
     DatatableComponent.prototype.getColumnClass = function (col) {
         var className = ' ui-dt-cell ';
@@ -785,6 +969,45 @@ var DatatableComponent = /** @class */ (function () {
     };
     DatatableComponent.prototype.onPageChange = function (e) {
         this.page = this._dts.getPageData(this.rows, this.size, e.pageNum);
+    };
+    DatatableComponent.prototype.sort = function (item) {
+        this.page.rows.sort(this.dynamicSort(item.field));
+    };
+    DatatableComponent.prototype.dynamicSort = function (property) {
+        var sortOrder = 1;
+        if (property[0] === '-') {
+            sortOrder = -1;
+            property = property.substr(1);
+        }
+        return function (a, b) {
+            if (sortOrder === -1) {
+                return b[property].toString().localeCompare(a[property]);
+            }
+            else {
+                return a[property].toString().localeCompare(b[property]);
+            }
+        };
+    };
+    DatatableComponent.prototype.filter = function (event, field, val) {
+        if (val.toString().length) {
+            if (event.keyCode === 13 || event.which === 13) {
+                this.search = {};
+                this.search[field] = val;
+                console.log(field, this.search, this.rows);
+                var rows_1 = [];
+                this.rows.forEach(function (item) {
+                    if (item[field].toString().toLowerCase().indexOf(val.toString().toLowerCase()) !== -1) {
+                        rows_1.push(item);
+                    }
+                });
+                this.resultCount = rows_1.length;
+                this.page = this._dts.getPageData(rows_1, this.size, 1);
+            }
+        }
+        else {
+            this.resultCount = this.rows.length;
+            this.page = this._dts.getPageData(this.rows, this.size, 1);
+        }
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -836,6 +1059,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _datatable_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./datatable.component */ "./projects/ng-uikit/src/lib/datatable/datatable.component.ts");
 /* harmony import */ var _pagination_pagination_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pagination/pagination.component */ "./projects/ng-uikit/src/lib/datatable/pagination/pagination.component.ts");
 /* harmony import */ var _service_datatable_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./service/datatable.service */ "./projects/ng-uikit/src/lib/datatable/service/datatable.service.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm5/forms.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -847,13 +1071,15 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
 var DatatableModule = /** @class */ (function () {
     function DatatableModule() {
     }
     DatatableModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"])({
             imports: [
-                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"]
+                _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"],
+                _angular_forms__WEBPACK_IMPORTED_MODULE_5__["FormsModule"]
             ],
             providers: [_service_datatable_service__WEBPACK_IMPORTED_MODULE_4__["DatatableService"]],
             declarations: [_datatable_component__WEBPACK_IMPORTED_MODULE_2__["DatatableComponent"], _pagination_pagination_component__WEBPACK_IMPORTED_MODULE_3__["PaginationComponent"]],
@@ -2226,7 +2452,7 @@ module.exports = ".navbar-brand{\r\n  color: #cb3837;\r\n  font-weight: bolder;\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<nav class=\"navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow\">\r\n  <a class=\"navbar-brand col-sm-3 col-md-2 mr-0\" href=\"#\">ng-uikit</a>\r\n  <ul class=\"navbar-nav px-3\">\r\n    <li class=\"nav-item text-nowrap\">\r\n      <a class=\"nav-link\" href=\"#\"> </a>\r\n    </li>\r\n  </ul>\r\n</nav>\r\n\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <nav class=\"col-md-2 d-none d-md-block bg-light sidebar\">\r\n      <div class=\"sidebar-sticky\">\r\n        <h6 class=\"sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted\">\r\n          <span>Modules</span>\r\n          <a class=\"d-flex align-items-center text-muted\" href=\"#\">\r\n            <span data-feather=\"plus-circle\"></span>\r\n          </a>\r\n        </h6>\r\n        <ul class=\"nav flex-column mb-2\">\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Accordion\">\r\n              <span data-feather=\"home\"></span>\r\n              Accordion <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Card\">\r\n              <span data-feather=\"home\"></span>\r\n              Card <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Carousel\">\r\n              <span data-feather=\"home\"></span>\r\n              Carousel <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Chart\">\r\n              <span data-feather=\"home\"></span>\r\n              Chart <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Datatable\">\r\n              <span data-feather=\"home\"></span>\r\n              Datatable <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Datepicker\">\r\n              <span data-feather=\"home\"></span>\r\n              Datepicker <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Dropdown\">\r\n              <span data-feather=\"home\"></span>\r\n              Dropdown <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Modal\">\r\n              <span data-feather=\"home\"></span>\r\n              Modal <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Tab\">\r\n              <span data-feather=\"home\"></span>\r\n              Tab <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Tooltip\">\r\n              <span data-feather=\"home\"></span>\r\n              Tooltip <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </nav>\r\n    <main role=\"main\" class=\"col-md-9 ml-sm-auto col-lg-10 px-4\">\r\n      <router-outlet></router-outlet>\r\n    </main>\r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<nav class=\"navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow\">\r\n  <a class=\"navbar-brand col-sm-3 col-md-2 mr-0\" href=\"#\">ng-uikit</a>\r\n  <ul class=\"navbar-nav px-3\">\r\n    <li class=\"nav-item text-nowrap\">\r\n      <a class=\"nav-link\" href=\"#\"> </a>\r\n    </li>\r\n  </ul>\r\n</nav>\r\n\r\n<div class=\"container-fluid\">\r\n  <div class=\"row\">\r\n    <nav class=\"col-md-2 d-none d-md-block bg-light sidebar\">\r\n      <div class=\"sidebar-sticky\">\r\n        <h6 class=\"sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted\">\r\n          <span>Modules</span>\r\n          <a class=\"d-flex align-items-center text-muted\" href=\"#\">\r\n            <span data-feather=\"plus-circle\"></span>\r\n          </a>\r\n        </h6>\r\n        <ul class=\"nav flex-column mb-2\">\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Accordion\">\r\n              <span data-feather=\"home\"></span>\r\n              Accordion <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Autocomplete\">\r\n              <span data-feather=\"home\"></span>\r\n              Autocomplete <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Card\">\r\n              <span data-feather=\"home\"></span>\r\n              Card <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Carousel\">\r\n              <span data-feather=\"home\"></span>\r\n              Carousel <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Chart\">\r\n              <span data-feather=\"home\"></span>\r\n              Chart <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Datatable\">\r\n              <span data-feather=\"home\"></span>\r\n              Datatable <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Datepicker\">\r\n              <span data-feather=\"home\"></span>\r\n              Datepicker <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Dropdown\">\r\n              <span data-feather=\"home\"></span>\r\n              Dropdown <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Modal\">\r\n              <span data-feather=\"home\"></span>\r\n              Modal <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Tab\">\r\n              <span data-feather=\"home\"></span>\r\n              Tab <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n          <li class=\"nav-item\">\r\n            <a class=\"nav-link active\" href=\"#Tooltip\">\r\n              <span data-feather=\"home\"></span>\r\n              Tooltip <span class=\"sr-only\">(current)</span>\r\n            </a>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </nav>\r\n    <main role=\"main\" class=\"col-md-9 ml-sm-auto col-lg-10 px-4\">\r\n      <router-outlet></router-outlet>\r\n    </main>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -2306,12 +2532,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _projects_ng_uikit_src_lib_tooltip_tooltip_module__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/tooltip/tooltip.module */ "./projects/ng-uikit/src/lib/tooltip/tooltip.module.ts");
 /* harmony import */ var _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
 /* harmony import */ var _shared_api_service__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./shared/api.service */ "./src/app/shared/api.service.ts");
+/* harmony import */ var _autocomplete_autocomplete_component__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./autocomplete/autocomplete.component */ "./src/app/autocomplete/autocomplete.component.ts");
+/* harmony import */ var _projects_ng_uikit_src_lib_autocomplete_autocomplete_module__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ../../projects/ng-uikit/src/lib/autocomplete/autocomplete.module */ "./projects/ng-uikit/src/lib/autocomplete/autocomplete.module.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -2360,7 +2590,8 @@ var AppModule = /** @class */ (function () {
                 _datatable_datatable_component__WEBPACK_IMPORTED_MODULE_19__["DatatableComponent"],
                 _tab_tab_component__WEBPACK_IMPORTED_MODULE_20__["TabComponent"],
                 _shared_component_doc_doc_component__WEBPACK_IMPORTED_MODULE_22__["DocComponent"],
-                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_28__["DashboardComponent"]
+                _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_28__["DashboardComponent"],
+                _autocomplete_autocomplete_component__WEBPACK_IMPORTED_MODULE_30__["AutocompleteComponent"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
@@ -2368,6 +2599,7 @@ var AppModule = /** @class */ (function () {
                 _projects_ng_uikit_src_lib_ng_uikit_module__WEBPACK_IMPORTED_MODULE_6__["NgUikitModule"],
                 _projects_ng_uikit_src_lib_carousel_carousel_module__WEBPACK_IMPORTED_MODULE_7__["CarouselModule"],
                 _projects_ng_uikit_src_lib_accordion_accordion_module__WEBPACK_IMPORTED_MODULE_21__["AccordionModule"],
+                _projects_ng_uikit_src_lib_autocomplete_autocomplete_module__WEBPACK_IMPORTED_MODULE_31__["AutocompleteModule"],
                 _projects_ng_uikit_src_lib_datepicker_datepicker_module__WEBPACK_IMPORTED_MODULE_9__["DatepickerModule"],
                 _projects_ng_uikit_src_lib_dropdown_dropdown_module__WEBPACK_IMPORTED_MODULE_14__["DropdownModule"],
                 _projects_ng_uikit_src_lib_chart_chart_module__WEBPACK_IMPORTED_MODULE_10__["ChartModule"],
@@ -2381,6 +2613,7 @@ var AppModule = /** @class */ (function () {
                 _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot([
                     { path: '', component: _dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_28__["DashboardComponent"] },
                     { path: 'Accordion', component: _accordion_accordion_component__WEBPACK_IMPORTED_MODULE_16__["AccordionComponent"] },
+                    { path: 'Autocomplete', component: _autocomplete_autocomplete_component__WEBPACK_IMPORTED_MODULE_30__["AutocompleteComponent"] },
                     { path: 'Card', component: _card_card_component__WEBPACK_IMPORTED_MODULE_18__["CardComponent"] },
                     { path: 'Carousel', component: _carousel_carousel_component__WEBPACK_IMPORTED_MODULE_8__["CarouselComponent"] },
                     { path: 'Chart', component: _chart_chart_component__WEBPACK_IMPORTED_MODULE_11__["ChartComponent"] },
@@ -2397,6 +2630,95 @@ var AppModule = /** @class */ (function () {
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/autocomplete/autocomplete.component.css":
+/*!*********************************************************!*\
+  !*** ./src/app/autocomplete/autocomplete.component.css ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/autocomplete/autocomplete.component.html":
+/*!**********************************************************!*\
+  !*** ./src/app/autocomplete/autocomplete.component.html ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "\r\n<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-6\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-6\">\r\n    <div class=\"demo-content \">\r\n      <form>\r\n        <div class=\"form-group\">\r\n          <label for=\"exampleInputEmail1\">Email address</label>\r\n          <input type=\"email\" class=\"form-control\" id=\"exampleInputEmail1\" aria-describedby=\"emailHelp\" placeholder=\"Enter email\">\r\n          <small id=\"emailHelp\" class=\"form-text text-muted\">We'll never share your email with anyone else.</small>\r\n        </div>\r\n        <ui-autocomplete [sourceURL]=\"jsonURL\" niddle=\"code\" (selected)=\"onSelection($event)\"></ui-autocomplete>\r\n        <div class=\"form-group form-check\">\r\n          <input type=\"checkbox\" class=\"form-check-input\" id=\"exampleCheck1\">\r\n          <label class=\"form-check-label\" for=\"exampleCheck1\">Check me out</label>\r\n        </div>\r\n        <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\r\n      </form>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+
+/***/ }),
+
+/***/ "./src/app/autocomplete/autocomplete.component.ts":
+/*!********************************************************!*\
+  !*** ./src/app/autocomplete/autocomplete.component.ts ***!
+  \********************************************************/
+/*! exports provided: AutocompleteComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AutocompleteComponent", function() { return AutocompleteComponent; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var AutocompleteComponent = /** @class */ (function () {
+    function AutocompleteComponent() {
+        this.codes = {
+            import: "import {CarouselModule} from 'ng-uikit'",
+            component: "export class Demo implements OnInit { }",
+            html: "<ui-accordion></ui-accordion>",
+            properties: [{
+                    name: '',
+                    type: '',
+                    default: '',
+                    description: ''
+                }],
+            events: [{
+                    name: '',
+                    parameters: '',
+                    description: ''
+                }],
+            styling: [{
+                    selector: '',
+                    description: ''
+                }]
+        };
+        this.language = 'html';
+        this.title = 'Card';
+        this.jsonURL = '../assets/json/autocomplete.json';
+    }
+    AutocompleteComponent.prototype.ngOnInit = function () {
+    };
+    AutocompleteComponent.prototype.onSelection = function (e) {
+        console.log(e);
+    };
+    AutocompleteComponent = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-autocomplete',
+            template: __webpack_require__(/*! ./autocomplete.component.html */ "./src/app/autocomplete/autocomplete.component.html"),
+            styles: [__webpack_require__(/*! ./autocomplete.component.css */ "./src/app/autocomplete/autocomplete.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], AutocompleteComponent);
+    return AutocompleteComponent;
 }());
 
 
@@ -2795,7 +3117,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-4\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-8\">\r\n    <div *ngIf=\"rows\">\r\n      <ui-datatable\r\n        class=\"material\"\r\n        [size]=\"1\"\r\n        [rows]=\"rows\"\r\n        [columns]=\"columns\"\r\n        (page)=\"onPageChange($event)\"\r\n        (sorted)=\"onSort($event)\">\r\n      </ui-datatable>\r\n      <!--<h3>Pagination Separate</h3>-->\r\n      <!--<ui-pagination-->\r\n        <!--[size]=\"5\"-->\r\n        <!--[totalCount]=\"100\"-->\r\n        <!--(pageChange)=\"onPageChange($event)\">-->\r\n      <!--</ui-pagination>-->\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom\"\r\n     id=\"Carousel\">\r\n  <h1 class=\"h2\">{{title}}</h1>\r\n</div>\r\n<div class=\"row\">\r\n  <div class=\"col-md-4\">\r\n    <app-doc [pageData]=\"codes\"></app-doc>\r\n  </div>\r\n  <div class=\"col-md-8\">\r\n    <div *ngIf=\"rows\">\r\n      <ui-datatable\r\n        class=\"material\"\r\n        [size]=\"size\"\r\n        [rows]=\"rows\"\r\n        [columns]=\"columns\"\r\n        (page)=\"onPageChange($event)\"\r\n        (sorted)=\"onSort($event)\">\r\n      </ui-datatable>\r\n      <!--<h3>Pagination Separate</h3>-->\r\n      <!--<ui-pagination-->\r\n        <!--[size]=\"5\"-->\r\n        <!--[totalCount]=\"100\"-->\r\n        <!--(pageChange)=\"onPageChange($event)\">-->\r\n      <!--</ui-pagination>-->\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -2847,6 +3169,7 @@ var DatatableComponent = /** @class */ (function () {
         };
         this.language = 'html';
         this.title = 'Datatable';
+        this.size = 2;
     }
     DatatableComponent.prototype.ngOnInit = function () {
         var _this = this;

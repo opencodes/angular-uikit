@@ -29,13 +29,38 @@ export class AutocompleteComponent implements OnInit {
   };
   language = 'html';
   title = 'Card';
-  jsonURL:string = '../assets/json/autocomplete.json'
+  jsonURL: string = '../assets/json/autocomplete.json';
+  source = [
+    {
+      "name": "Rajesh",
+      "code": "AF"
+    },
+    {
+      "name": "Santan",
+      "code": "AX"
+    },
+    {
+      "name": "Bagish",
+      "code": "AL"
+    },
+    {
+      "name": "Sudhira",
+      "code": "DZ"
+    },
+    {
+      "name": "Pankaj",
+      "code": "AS"
+    }
+  ];
+  sourceArr = ["Rajesh", "Santan", "Bagish", "Sudhira", "Pankaj"];
+
   constructor() {
   }
 
   ngOnInit() {
   }
-  onSelection(e){
+
+  onSelection(e) {
     console.log(e)
   }
 }

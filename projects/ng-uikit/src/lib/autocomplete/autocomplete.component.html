@@ -1,11 +1,14 @@
 <div class="form-group ui-autocomplete">
   <label for="UIAutocomplete">{{label}}</label>
-  <input type="text" class="form-control" id="UIAutocomplete" aria-describedby="emailHelp" placeholder="Enter {{label}}"
-         [ngModel]="selectedItem[niddle]" (keyup)="filter($event.target.value)">
+  <input *ngIf="niddle" type="text" class="form-control" id="UIAutocomplete1" aria-describedby="emailHelp" placeholder="Enter {{label}}"
+         [ngModel]="selectedItem[niddle]" (keyup)="filter($event.target.value)" autocomplete="off">
+
+  <input *ngIf="!niddle" type="text" class="form-control" id="UIAutocomplete" aria-describedby="emailHelp" placeholder="Enter {{label}}"
+         [ngModel]="selectedItem" (keyup)="filter($event.target.value)" autocomplete="off">
   <small id="emailHelp" class="form-text text-muted" *ngIf="helpText">{{helpText}}</small>
   <div class="ui-autocomplete-container">
     <ul class="list-group ui-autocomplete-list" *ngIf="filteredList.length">
-      <li class="list-group-item ui-autocomplete-list-item" (click)="selectItem(item)" *ngFor="let item of filteredList">{{item[niddle]}}</li>
+      <li class="list-group-item ui-autocomplete-list-item" (click)="selectItem(item)" *ngFor="let item of filteredList">{{getText(item)}}</li>
     </ul>
   </div>
 </div>

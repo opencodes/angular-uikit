@@ -9,12 +9,12 @@ import {HttpClient} from '@angular/common/http';
 export class AutocompleteComponent implements OnInit {
   @Input() source: any[];
   @Input() sourceURL: string;
-  @Input() niddle = 'name';
+  @Input() niddle;
   @Input() label = 'Name';
   @Output() selected = new EventEmitter();
   @Input() helpText = 'Enter at least 2 char to search';
   filteredList: any[] = [];
-  selectedItem: any = {};
+  selectedItem: any = (this.niddle) ? {} : "";
 
   constructor(private http: HttpClient) {
   }
@@ -31,14 +31,14 @@ export class AutocompleteComponent implements OnInit {
       console.log(this.filteredList);
     } else {
       this.filteredList = [];
-      this.selectedItem = {};
+      this.selectedItem = (this.niddle) ? {} : "";
     }
   }
 
   filterResult(key) {
     const result: any[] = [];
     this.source.forEach((item) => {
-      const name = item[this.niddle].toLowerCase();
+      const name = (this.niddle) ? item[this.niddle].toLowerCase() : item.toString().toLowerCase();
       if (name.indexOf(key.toLowerCase()) !== -1 && (result.length < 10)) {
         result.push(item);
       } else {
@@ -55,6 +55,10 @@ export class AutocompleteComponent implements OnInit {
         this.source = res;
       }
     });
+  }
+
+  getText(item) {
+    return (this.niddle) ? item[this.niddle] : item;
   }
 
   selectItem(item) {
